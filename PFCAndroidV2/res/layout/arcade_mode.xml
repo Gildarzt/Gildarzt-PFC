@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+    	android:id="@+id/arcadeSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="58dp"
+        android:text="@string/arc_speed"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/arcPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/arcadeSpeedCB"
+        android:layout_alignTop="@+id/arcadeBonus"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/play_button" />
+
+    <TextView
+        android:id="@+id/arcadeTries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/arcadeSpeed"
+        android:layout_below="@+id/etSpeed"
+        android:layout_marginTop="50dp"
+        android:text="@string/arc_tries"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <CheckBox
+        android:id="@+id/arcadeSpeedCB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/arcadeSpeed"
+        android:layout_alignParentRight="true"
+        android:text="@string/arc_inc"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/etSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/arcadeSpeed"
+        android:layout_alignBottom="@+id/arcadeSpeed"
+        android:layout_toLeftOf="@+id/arcadeSpeedCB"
+        android:layout_toRightOf="@+id/arcadeSpeed"
+        android:inputType="number"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/etTries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/arcadeTries"
+        android:layout_alignBottom="@+id/arcadeTries"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/arcadeTries"
+        android:inputType="number"
+        android:ems="10" />
+
+    <CheckBox
+        android:id="@+id/arcadeBonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/arcadeSpeed"
+        android:layout_below="@+id/etTries"
+        android:layout_marginTop="66dp"
+        android:text="@string/arc_bonus" />
+
+    <CheckBox
+        android:id="@+id/sound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/arcPlay"
+        android:layout_alignLeft="@+id/arcadeBonus"
+        android:text="@string/sound" />
+
+</RelativeLayout>

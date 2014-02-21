@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TextView
+        android:id="@+id/profileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="30dp"
+        android:text="nombre" />
+
+    <TextView
+        android:id="@+id/profileNick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/profileName"
+        android:layout_below="@+id/profileName"
+        android:layout_marginTop="14dp"
+        android:text="nick" />
+
+    <TextView
+        android:id="@+id/profilePassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/profileNick"
+        android:layout_alignBottom="@+id/profileNick"
+        android:layout_alignLeft="@+id/profileSurname"
+        android:text="password" />
+
+    <TextView
+        android:id="@+id/profilePsicName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/profileNick"
+        android:layout_below="@+id/profileNick"
+        android:layout_marginTop="20dp"
+        android:text="Nombre psicologa" />
+
+    <ExpandableListView
+        android:id="@+id/profileGoalsRec"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/profilePsicName"
+        android:layout_marginTop="17dp" >
+
+    </ExpandableListView>
+
+    <TextView
+        android:id="@+id/profileSurname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/profileName"
+        android:layout_alignBottom="@+id/profileName"
+        android:layout_marginLeft="24dp"
+        android:layout_toRightOf="@+id/profilePsicName"
+        android:text="apellido" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/profileSurname"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/ic_launcher" />
+
+</RelativeLayout>

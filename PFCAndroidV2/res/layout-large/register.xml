@@ -1,0 +1,109 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TextView
+        android:id="@+id/registerPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextNick2"
+        android:layout_below="@+id/editTextNick2"
+        android:layout_marginTop="14dp"
+        android:text="@string/register_pass" />
+
+    <TextView
+        android:id="@+id/registerNick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/register_nick" />
+
+    <TextView
+        android:id="@+id/registerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextPassword"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_marginTop="14dp"
+        android:text="@string/register_name" />
+
+    <TextView
+        android:id="@+id/registerSurname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/EditTextName"
+        android:layout_below="@+id/EditTextName"
+        android:layout_marginTop="14dp"
+        android:text="@string/register_surname" />
+
+    <EditText
+        android:id="@+id/editTextSurname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/registerSurname"
+        android:layout_below="@+id/registerSurname"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextNick2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/registerNick"
+        android:layout_below="@+id/registerNick"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/registerPass"
+        android:layout_alignRight="@+id/editTextNick2"
+        android:layout_below="@+id/registerPass"
+        android:ems="10"
+        android:inputType="textPassword" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/EditTextName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/registerName"
+        android:layout_below="@+id/registerName"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/registerPsiName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextSurname"
+        android:layout_below="@+id/editTextSurname"
+        android:layout_marginTop="14dp"
+        android:text="@string/register_psiName" />
+
+    <EditText
+        android:id="@+id/editTextPsiName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/registerPsiName"
+        android:layout_below="@+id/registerPsiName"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/regButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextPsiName"
+        android:layout_marginTop="25dp"
+        android:layout_toRightOf="@+id/registerSurname"
+        android:text="@string/reg_button" />
+
+</RelativeLayout>

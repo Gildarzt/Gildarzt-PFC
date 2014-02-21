@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PFCAndroid</string>
+    <string name="action_settings">Settings</string>
+    <string name="text_button">""</string>
+    <string name="text_view_name">Nombre</string>
+    <string name="text_view_pass">Contraseña</string>
+    <string name="login_button">Entrar</string>
+    <string name="register_text">¿Aún no te has registrado?</string>
+    <string name="register_button">¡Regristrate!</string>
+    <string name="register_name">Nombre</string>
+    <string name="register_surname">Apellidos</string>
+    <string name="register_pass">Contraseña</string>
+    <string name="register_nick">Nombre de usuario</string>
+    <string name="register_psiName">Código de su psicológo</string>
+    <string name="reg_button">Regristrar</string>
+    <string name="play_button">Jugar</string>
+    <string name="profile_button">Perfil</string>
+    <string name="descp">Pulsa la pantalla cuando las imágenes se junten.Completa una racha de tres o mas aciertos para activar el modo bonus.Con 5 o mas aciertos en el modo bonus conseguirás una vida.¡¡Buena suerte!!</string>
+	<string name="arcade_mode">Arcade</string>
+	<string name="history_mode">Modo Historia</string>
+	<string name="arc_speed">Velocidad</string>
+	<string name="arc_inc">¿Incremental?</string>
+	<string name="arc_tries">Número de intentos</string>
+	<string name="arc_bonus">Bonus</string>
+	<string name="sound">Sonido</string>
+</resources>
