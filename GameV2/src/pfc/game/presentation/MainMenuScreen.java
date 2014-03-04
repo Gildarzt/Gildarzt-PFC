@@ -14,6 +14,7 @@ import com.badlogic.gdx.math.collision.BoundingBox;
 
 public class MainMenuScreen implements Screen {
 	private int idPlayer;
+	private String namePlayer;
 	Game game;
 	
 	Screen gameScreen;
@@ -38,9 +39,10 @@ public class MainMenuScreen implements Screen {
 	/** The touch point es un vector que recogera las coordenadas de la pulsacion. */
 	Vector3 touchPoint;
 
-	public MainMenuScreen(Game game,int idPlayer){
+	public MainMenuScreen(Game game,int idPlayer,String namePlayer){
 		this.game = game;
 		this.idPlayer=idPlayer;
+		this.namePlayer=namePlayer;
 		guiCam = new OrthographicCamera(10, 15); //definicion de nuestra propia medida del juego
 		guiCam.position.set(10f / 2, 15f / 2, 0); // Donde estara mirando la camara
 		batcher = new SpriteBatch(); //crear solamente un batcher por pantalla y eliminarlo cuando no se use
@@ -89,7 +91,7 @@ public class MainMenuScreen implements Screen {
 			guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
 			//si se presino start
 			if(startBounds.contains(touchPoint)){
-				((GameScreen) gameScreen).setDifficult(difficult,idPlayer);
+				((GameScreen) gameScreen).setDifficult(difficult,idPlayer,namePlayer);
 				game.setScreen(gameScreen);
 				return;
 			}

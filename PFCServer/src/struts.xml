@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="ISOII" namespace="/" extends="struts-default">
+		<action name="Login" class="actions.Login">
+			<result name="success">PsiMainPage.jsp</result>
+			<result name="error">LoginError.jsp</result>
+		</action>
+		<action name="MoveToRegister" class="actions.MoveToRegister">
+			<result name="success">RegisterPage.jsp</result>
+			<result name="error">RegisterError.jsp</result>
+		</action>
+		<action name="CloseSession" class="actions.CloseSession">
+			<result name="success">Title.jsp</result>
+			<result name="error">CloseSessionError.jsp</result>
+		</action>
+		<action name="ShowPatient" class="actions.ShowPatient">
+			<result name="success">PatientPage.jsp</result>
+			<result name="error">ShowPatientError.jsp</result>
+		</action>
+		<action name="SearchPatient" class="actions.SearchPatient">
+			<result name="success">PatienPage.jsp</result>
+			<result name="moreThanOne">PatientListPage.jsp</result>
+			<result name="error">SearchPatientError.jsp</result>
+		</action>
+		<action name="ShowReport" class="actions.ShowReport">
+			<result name="success">ReportPage.jsp</result>
+			<result name="error">ShowReportError.jsp</result>
+		</action>
+		<action name="ChangePersonalData" class="actions.ChangePersonalData">
+			<result name="success">PsiMainPage.jsp</result>
+			<result name="error">UpdateDataError.jsp</result>
+		</action>
+		<action name="ReturnToTitle" class="actions.ReturnToTitle">
+			<result name="success">TitlePage.jsp</result>
+		</action>
+		<action name="ReturnToPsiMainPage" class="actions.ReturnToPsiMainPage">
+			<result name="success">PsiMainPage.jsp</result>
+		</action>
+		<action name="RegisterPsi" class="actions.RegisterPsi">
+			<result name="success">TitlePage.jsp</result>
+			<result name="error">RegisterError.jsp</result>
+		</action>
+		<action name="SearchReport" class="actions.SearchReport">
+			<result name="success">ReportPage.jsp</result>
+			<result name="moreThanOne">ReportListPage.jsp</result>
+			<result name="error">SearchReportError.jsp</result>
+		</action>
+	</package>
+</struts>
+

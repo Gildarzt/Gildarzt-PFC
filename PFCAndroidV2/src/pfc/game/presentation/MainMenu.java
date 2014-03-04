@@ -17,11 +17,12 @@ public class MainMenu extends Activity{
 	private Player pla;
 	private Agent agent;
 	private Context context;
+	private Activity activity;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_menu);
-		
+		activity=this;
 		context=this;
 		pla=getIntent().getParcelableExtra("Player");
 		agent=new Agent();
@@ -81,6 +82,6 @@ public class MainMenu extends Activity{
 			pla.setRecList(agent.ReadRecFromPlayer(pla.getId(), context));
 	}
 	private void SendResults(){
-		
+		pla.sendReport(activity);
 	}
 }

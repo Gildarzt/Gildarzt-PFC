@@ -39,7 +39,7 @@ public class GameScreen implements Screen{
 	private Timer timerArc;
 	
 	public GameScreen(Game game){
-		arcade=false;
+		setArcade(false);
 		Initialize(game);
 	}
 	public GameScreen(Game game,World world){
@@ -49,8 +49,8 @@ public class GameScreen implements Screen{
 	
 	public GameScreen(Game game, ArcadeMode arc) {
 		// TODO Auto-generated constructor stub
-		arcade=true;
-		this.arc=arc;
+		setArcade(true);
+		this.setArc(arc);
 		Initialize(game);
 		this.world=new World(arc);
 		timerArc=new Timer();
@@ -88,10 +88,10 @@ public class GameScreen implements Screen{
 	@Override
 	public void render(float delta){
 		Circle cBig,cSmall;
+		/**<-------------------------------------TIMER TASK---------------------------------------------------->*/
 		/**ARP-13/11/13: This timer manage the time that the feedback of correct message 
 		 * appears on the screen.
 		 */
-		 
 		TimerTask timerTaskC = new TimerTask(){ 
 			public void run(){ 
 				debugC=false;
@@ -120,19 +120,8 @@ public class GameScreen implements Screen{
 	    		/**This else is when player doesn't pulse the screen*/
 	    		if(!world.isTouched()){
 	    			if(world.cBegin()){
-	    				System.out.println("No pulsado: Has fallado, intentalo otra vez!");
-	    				debugI=true;
-	    				world.setbTime(0);
-	    				if(!world.isArcMode()){
-	    					world.setbClick(world.getbClick()+1);
-	    					world.getPatient().getResultList().add(new Result(1,world.getDifficult(),debugC,"Normal"));
-	    					if(world.getDifficult()>=3){
-	    						/**I put rights clicks to 0 because i want to know the number of consecutive clicks*/
-	    						world.setgClick(0);
-	    						world.getPatient().setLifes(world.getPatient().getLifes()-1);
-	    						world.updateRecords();
-	    					}
-	    				}
+	    				world.getPatient().getResultList().add(new Result(1,world.getDifficult(),debugC,"Normal"));
+	    				failClick();
 	    			}
 	    		}
 	    		if(!world.initialize()){
@@ -142,6 +131,7 @@ public class GameScreen implements Screen{
 	    	
 	    	if (Gdx.input.justTouched()){
 	    		guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
+	    		/**If we click on bonus button*/
 	    		if(world.getbTime()>=3 && bonusBounds.contains(touchPoint)){
 	    			if(!world.isArcMode())
 	    				world.getPatient().setbTimes(world.getPatient().getbTimes()+world.getbTime());
@@ -149,36 +139,20 @@ public class GameScreen implements Screen{
 	    			game.setScreen(bonusScreen);
 	    		}
 	    		else if(!world.isTouched()){	
+	    			/**Get the position that we touch*/
 	    			int x1=(int)world.getcBig().getPosition().x-2,
 	    					y1=(int)world.getcBig().getPosition().y-2,
 	    					x2=(int)world.getcBig().getPosition().x+2,
 	    					y2=(int)world.getcBig().getPosition().y+2;
 	    			BoundingBox aux=new BoundingBox(new Vector3(x1,y1,0),new Vector3(x2,y2,0));
+	    			/**Check if it was a good click or a bad one*/
 	    			if(world.getcBig().equals(world.getcSmall()) && aux.contains(touchPoint)){
-	    				System.out.println("Se han cruzado");
-	    				debugC=true;
-	    				world.setbTime(world.getbTime()+1);
-	    				if(!world.isArcMode()){
-	    					world.setgClick(world.getgClick()+1);
-	    					if(world.getDifficult()>=3){
-	    						world.setbClick(0);
-	    						world.updateRecords();
-	    					}
-	    				}
+	    				successClick();
 	    			}
 	    			else{
-	    				System.out.println("Has fallado, intentalo otra vez!");
-	    				debugI=true;
-	    				world.setbTime(0);
-	    				if(!world.isArcMode()){
-	    					world.setbClick(world.getbClick()+1);
-	    					if(world.getDifficult()>=3){
-	    						world.setgClick(0);
-	    						world.getPatient().setLifes(world.getPatient().getLifes()-1);
-	    						world.updateRecords();
-	    					}
-	    				}
+	    				failClick();
 	    			}
+	    			/**Store the result*/
 	    			if(!world.isArcMode()){
 	    				if(world.getbTime()>=3)
 	    					world.getPatient().getResultList().add(new Result(1,world.getDifficult(),debugC,"Normal, Bonus On"));
@@ -188,6 +162,7 @@ public class GameScreen implements Screen{
 	    		}
 	    		world.setTouched(true);
 	    	}
+	    	/**<--------------------------------PRINT THE SCREEN------------------------------------------->*/
 	    	world.update(delta);
 		
 	    	GL10 gl = Gdx.graphics.getGL10();
@@ -240,28 +215,62 @@ public class GameScreen implements Screen{
 	    	timerArc.schedule(timerTaskArc, 1000);
 	    }
 	}
-
-
 	@Override
 	public void resize(int arg0, int arg1) {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public void resume() {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public void show() {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	public void setDifficult(int difficult,int idPlayer){
-		world = new World(difficult,idPlayer);
+	private void successClick(){
+		System.out.println("Se han cruzado");
+		debugC=true;
+		world.setbTime(world.getbTime()+1);
+		if(!world.isArcMode()){
+			world.getClick().setSuccessNormalClick(world.getClick().getSuccessNormalClick()+1);
+			world.getClick().setTotalSuccessClick(world.getClick().getTotalSuccessClick()+1);
+			if(world.getDifficult()>=3){
+				world.getClick().setFailNormalClick(0);
+				world.updateRecords();
+			}
+		}
 	}
-
+	private void failClick(){
+		System.out.println("Has fallado, intentalo otra vez!");
+		debugI=true;
+		world.setbTime(0);
+		if(!world.isArcMode()){
+			world.getClick().setFailNormalClick(world.getClick().getFailNormalClick()+1);
+			world.getClick().setTotalFailClick(world.getClick().getTotalFailClick()+1);
+			if(world.getDifficult()>=3){
+				/**I put rights clicks to 0 because i want to know the number of consecutive clicks*/
+				world.getClick().setSuccessNormalClick(0);
+				world.getPatient().setLifes(world.getPatient().getLifes()-1);
+				world.updateRecords();
+			}
+		}
+	}
+	public void setDifficult(int difficult,int idPlayer,String namePlayer){
+		world = new World(difficult,idPlayer,namePlayer);
+	}
+	public boolean isArcade() {
+		return arcade;
+	}
+	public void setArcade(boolean arcade) {
+		this.arcade = arcade;
+	}
+	public ArcadeMode getArc() {
+		return arc;
+	}
+	public void setArc(ArcadeMode arc) {
+		this.arc = arc;
+	}
 }

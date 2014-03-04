@@ -3,6 +3,7 @@ package pfc.game.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -143,8 +144,12 @@ public class Player implements Parcelable{
 	public boolean playerDAO(Context context){
 		return agent.insertPlayer(this,context);
 	}
-	public boolean createResultFile(){
-		FileResult aux=new FileResult();
-		return aux.createFile(this);
+	public boolean createResultFile(Activity activity){
+		FileResult aux=new FileResult(activity,this);
+		return aux.createFile();
+	}
+	public void sendReport(Activity activity){
+		FileResult aux=new FileResult(activity,this);
+		aux.SendAllReports();
 	}
 }

@@ -1,33 +1,33 @@
-<LinearLayout 
-        xmlns:android="http://schemas.android.com/apk/res/android"
-    	android:layout_width="fill_parent"
-    	android:layout_height="fill_parent"  >
-
-        <Button
-            android:id="@+id/playButton"
-            style="@style/login_button"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/play_button"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold" 
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginBottom="300dp"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
         <Button
             android:id="@+id/profileButton"
             style="@style/login_button"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="100sp"
+            android:layout_height="50sp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="38dp"
+            android:layout_marginTop="122dp"
             android:text="@string/profile_button"
             android:textColor="#000000"
             android:textSize="18sp"
-            android:textStyle="bold" 
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginBottom="300dp"/>
-</LinearLayout>
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/playButton"
+            style="@style/login_button"
+            android:layout_width="100sp"
+            android:layout_height="50sp"
+            android:layout_alignBaseline="@+id/profileButton"
+            android:layout_alignBottom="@+id/profileButton"
+            android:layout_marginRight="36dp"
+            android:layout_toLeftOf="@+id/profileButton"
+            android:text="@string/play_button"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+</RelativeLayout>

@@ -86,16 +86,8 @@ public class BonusGameScreen implements Screen{
 		if(world.cGone()){
 			if(!world.isTouched()){
 				if(world.cBegin()){
-					System.out.println("Bonus Time, No pulsado: Has fallado, intentalo otra vez!");
-					debugI=true;
-					world.setbTime(0);
-					if(!world.isArcMode()){
-						world.getPatient().setcTimes(0);
-						world.getPatient().getResultList().add(new Result(1,world.getDifficult(),debugC,"Bonus Time"));
-						world.setBonusbClick(world.getBonusbClick()+1);
-						world.setBonusgClick(0);
-						world.updateBRecords();
-					}
+					world.getPatient().getResultList().add(new Result(1,world.getDifficult(),debugC,"Bonus Time"));
+					failBonusClick();
 				}
 			}
 			if(!world.initialize()){
@@ -113,30 +105,10 @@ public class BonusGameScreen implements Screen{
 						y2=(int)world.getcBig().getPosition().y+2;
 				BoundingBox aux=new BoundingBox(new Vector3(x1,y1,0),new Vector3(x2,y2,0));
 				if(world.getcBig().equals(world.getcSmall()) && aux.contains(touchPoint)){
-					System.out.println("Bonus: Se han cruzado");
-					debugC=true;
-					if(!world.isArcMode()){
-						world.getPatient().setcTimes(world.getPatient().getcTimes()+1);
-						world.setBonusgClick(world.getBonusgClick()+1);
-						world.setBonusbClick(0);
-						
-						if(world.getPatient().getcTimes()==5 && world.getPatient().getLifes()<5){
-							world.getPatient().setLifes(world.getPatient().getLifes()+1);
-							world.getPatient().setcTimes(0);
-						}
-						else if(world.getPatient().getLifes()==5){
-							world.getPatient().getGoalList().add(12);
-						}
-					}
+					successBonusClick();
 				}
 				else{
-					System.out.println("Bonus: Has fallado, intentalo otra vez!");
-					debugI=true;
-					if(!world.isArcMode()){
-						world.getPatient().setcTimes(0);
-						world.setBonusbClick(world.getBonusbClick()+1);
-						world.setBonusgClick(0);
-					}
+					failBonusClick();
 				}
 				if(!world.isArcMode())
 					world.getPatient().getResultList().add(new Result(1,world.getDifficult(),debugC,"Bonus Time"));
@@ -198,5 +170,33 @@ public class BonusGameScreen implements Screen{
 	public void show() {
 		// TODO Auto-generated method stub
 			
+	}
+	private void successBonusClick(){
+		System.out.println("Bonus: Se han cruzado");
+		debugC=true;
+		if(!world.isArcMode()){
+			world.getPatient().setcTimes(world.getPatient().getcTimes()+1);
+			world.getClick().setSuccessBonusClick(world.getClick().getSuccessBonusClick()+1);
+			world.getClick().setFailBonusClick(0);;
+			world.getClick().setTotalSuccessClick(world.getClick().getTotalSuccessClick()+1);
+			if(world.getPatient().getcTimes()==5 && world.getPatient().getLifes()<5){
+				world.getPatient().setLifes(world.getPatient().getLifes()+1);
+				world.getPatient().setcTimes(0);
+			}
+			else if(world.getPatient().getLifes()==5){
+				world.getPatient().getGoalList().add(12);
+			}
+		}
+	}
+	private void failBonusClick(){
+		System.out.println("Bonus Time, has fallado, intentalo otra vez!");
+		debugI=true;
+		world.setbTime(0);
+		if(!world.isArcMode()){
+			world.getPatient().setcTimes(0);
+			world.getClick().setSuccessBonusClick(world.getClick().getSuccessBonusClick()+1);
+			world.getClick().setFailBonusClick(0);
+			world.updateBRecords();
+		}
 	}
 }

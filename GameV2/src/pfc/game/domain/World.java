@@ -3,84 +3,77 @@ package pfc.game.domain;
 import java.util.Random;
 
 import pfc.game.domain.Circle;
+import pfc.game.domain.widgets.Click;
 import pfc.game.persistence.Patient;
 
 /*ARP-09/10/13: In this class I'm going to initialise the toy and the the circles.
 I also to create a method that move the toy and the circles in the screen*/
 public class World {
 	private boolean touched;//That variable is used to see if the screen have been touch.
+	private boolean bonusTime;
+	private boolean arcMode;
 	private Circle cSmall;
 	private Circle cBig;
 	private Test test;
 	private Patient pat;
-	private double difficult;
-	private int bTime;
-	private boolean bonusTime;
-	private int oldTries;
-	private int gClick,bClick,BonusgClick,BonusbClick;
 	private ArcadeMode arc;
-	private boolean arcMode;
+	private int oldTries;
+	private int bTime;
+	private double difficult;
+	private Click click;
 	
-	public World(double difficult,int idPlayer){
-		test=new Test(difficult);
-		cBig=null;
-		cSmall=null;
-		pat=new Patient(idPlayer,test.getTries());
-		bTime=0;
-		gClick=0;
-		bClick=0;
-		BonusgClick=0;
-		BonusbClick=0;
+	/**<--------------------------------------------CONSTRUCTORS------------------------------------------->*/
+	public World(double difficult,int idPlayer,String namePlayer){
+		this.test=new Test(difficult);
+		this.cBig=null;
+		this.cSmall=null;
+		this.pat=new Patient(namePlayer,idPlayer,test.getTries());
+		this.bTime=0;
+		this.click=new Click();
 		this.difficult=difficult;
-		bonusTime=false;
-		arcMode=false;
+		this.bonusTime=false;
+		this.arcMode=false;
 		
 	}
 	/**Bonus time constructor*/
 	public World(World world, boolean bonusTime){
-		test=new Test(world.getDifficult(),world.getbTime());
-		cBig=null;
-		cSmall=null;
+		this.test=new Test(world.getDifficult(),world.getbTime());
+		this.cBig=null;
+		this.cSmall=null;
 		this.pat=world.getPatient();
 		this.oldTries=world.getTest().getTries();
 		this.bonusTime=bonusTime;
 		this.difficult=world.getDifficult();
-		this.gClick=world.getgClick();
-		this.bClick=world.getbClick();
 		this.arcMode=world.isArcMode();
+		this.click=new Click(world.getClick());
+		
 	}
 	/**This constructor is when you want to create a new world with things of old one.*/
 	public World(World world){
-		test=new Test(world.getDifficult(),world.getOldTries());
-		cBig=null;
-		cSmall=null;
-		bTime=0;
+		this.test=new Test(world.getDifficult(),world.getOldTries());
+		this.cBig=null;
+		this.cSmall=null;
+		this.bTime=0;
+		this.bonusTime=false;
 		this.pat=world.getPatient();
 		this.difficult=world.getDifficult();
 		//Store the rights and wrongs clicks in each mode, normal and bonus.
-		this.gClick=world.getgClick();
-		this.bClick=world.getbClick();
-		this.BonusbClick=world.getBonusbClick();
-		this.BonusgClick=world.getBonusgClick();
-		bonusTime=false;
+		this.click=new Click(world.getClick());
 		this.arcMode=world.isArcMode();
 	}
 	/**Arcade mode */
 	public World(ArcadeMode arc) {
 		// TODO Auto-generated constructor stub
-		test=new Test(arc.getDifficult(),arc.getTries());
-		cBig=null;
-		cSmall=null;
-		pat=null;
-		bTime=0;
-		gClick=0;
-		bClick=0;
-		BonusgClick=0;
-		BonusbClick=0;
+		this.test=new Test(arc.getDifficult(),arc.getTries());
+		this.cBig=null;
+		this.cSmall=null;
+		this.pat=null;
+		this.bTime=0;
+		this.click=new Click();
 		this.difficult=arc.getDifficult();
-		bonusTime=false;
+		this.bonusTime=false;
 		this.arc=arc;
-		arcMode=true;
+		this.arcMode=true;
 	}
 	/**In this method I initialise the circles.*/
 	public boolean initialize(){
@@ -92,9 +85,9 @@ public class World {
 					checkBGoals();
 					updateBRecords();
 				}
-				if(test.getDifficult()==1 && getgClick()>=4)
+				if(test.getDifficult()==1 && click.getSuccessNormalClick()>=4)
 					pat.getGoalList().add(1);
-				else if(test.getDifficult()==2 && getgClick()>=8)
+				else if(test.getDifficult()==2 && click.getSuccessNormalClick()>=8)
 					pat.getGoalList().add(2);
 			}
 			test.setTries(test.getTries()-1);
@@ -128,7 +121,7 @@ public class World {
 					}
 					else{
 						if(!isBonusTime()){
-							pat.saveResults();
+							pat.saveResults(click);
 							pat.saveGoalsAndRecords();
 						}
 					}
@@ -138,7 +131,7 @@ public class World {
 					 * on normal game, if we are on bonus time I don't do anything.
 					 */	
 					if(!isBonusTime()){
-						pat.saveResults();
+						pat.saveResults(click);
 						pat.saveGoalsAndRecords();
 					}
 				}	
@@ -149,25 +142,25 @@ public class World {
 	
 	public void updateRecords(){
 		if(getPatient().getRecordList().size()>0){
-			if(getPatient().getRecordList().get(0).getValue()<getgClick())
-				getPatient().getRecordList().get(0).setValue(getgClick());
-			if(getPatient().getRecordList().get(1).getValue()<getbClick())
-				getPatient().getRecordList().get(1).setValue(getbClick());
+			if(getPatient().getRecordList().get(0).getValue()<click.getSuccessNormalClick())
+				getPatient().getRecordList().get(0).setValue(click.getSuccessNormalClick());
+			if(getPatient().getRecordList().get(1).getValue()<click.getFailNormalClick())
+				getPatient().getRecordList().get(1).setValue(click.getFailNormalClick());
 		}
 	}
 	public void updateBRecords(){
 		if(getPatient().getRecordList().size()>0){
-			if(getPatient().getRecordList().get(2).getValue()<getBonusgClick())
-				getPatient().getRecordList().get(2).setValue(getBonusgClick());
-			if(getPatient().getRecordList().get(3).getValue()<getBonusbClick())
-				getPatient().getRecordList().get(3).setValue(getBonusbClick());
+			if(getPatient().getRecordList().get(2).getValue()<click.getSuccessBonusClick())
+				getPatient().getRecordList().get(2).setValue(click.getSuccessBonusClick());
+			if(getPatient().getRecordList().get(3).getValue()<click.getFailBonusClick())
+				getPatient().getRecordList().get(3).setValue(click.getFailBonusClick());
 		}
 	}
 	/**ARP-09/01/14: This method check if the goals of difficult and bonus time have been 
 	 * completed*/
 	private void checkGoals(){
 		/**Switch to check if the right clicks gets a goal*/
-		switch(getgClick()){
+		switch(click.getSuccessNormalClick()){
 		case 5:
 			pat.getGoalList().add(3);
 			break;
@@ -179,7 +172,7 @@ public class World {
 			break;
 		}
 		/**Switch to check if the wrong clicks gets a goal*/
-		switch(getbClick()){
+		switch(click.getFailNormalClick()){
 		case 5:
 			pat.getGoalList().add(6);
 			break;
@@ -206,7 +199,7 @@ public class World {
 	
 	private void checkBGoals(){
 		/**Switch to check if the right clicks on bonus screen gets a goal*/
-		switch(getBonusgClick()){
+		switch(click.getSuccessBonusClick()){
 		case 5:
 			pat.getGoalList().add(13);
 			break;
@@ -218,7 +211,7 @@ public class World {
 			break;
 		}
 		/**Switch to check if the wrong clicks on bonus screen gets a goal*/
-		switch(getBonusbClick()){
+		switch(click.getFailBonusClick()){
 		case 5:
 			pat.getGoalList().add(16);
 			break;
@@ -257,7 +250,7 @@ public class World {
 	}
 
 	/**ARP-30/10/13: This method generate a random number between 1 and 10. I use to get
-	both coordinates (x and y) and the y coordinate of the position. I use mult to decided
+	both coordinates (x and y) and the y coordinate of the position. I use multiplication to decided
 	the max range of the random numbers, I use that because speed can't be very fast.*/
 	public int random(int mult, int sum){
 		Random rnd=new Random();
@@ -339,30 +332,6 @@ public class World {
 	public void setOldTries(int oldTries) {
 		this.oldTries = oldTries;
 	}
-	public int getgClick() {
-		return gClick;
-	}
-	public void setgClick(int gClick) {
-		this.gClick = gClick;
-	}
-	public int getbClick() {
-		return bClick;
-	}
-	public void setbClick(int bClick) {
-		this.bClick = bClick;
-	}
-	public int getBonusgClick() {
-		return BonusgClick;
-	}
-	public void setBonusgClick(int bonusgClick) {
-		BonusgClick = bonusgClick;
-	}
-	public int getBonusbClick() {
-		return BonusbClick;
-	}
-	public void setBonusbClick(int bonusbClick) {
-		BonusbClick = bonusbClick;
-	}
 	public ArcadeMode getArc() {
 		return arc;
 	}
@@ -374,5 +343,11 @@ public class World {
 	}
 	public void setArcMode(boolean arcMode) {
 		this.arcMode = arcMode;
+	}
+	public Click getClick() {
+		return click;
+	}
+	public void setClick(Click click) {
+		this.click = click;
 	}
 }

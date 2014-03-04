@@ -22,8 +22,8 @@ public class GamePage extends AndroidApplication{
 	        }
 	        else{
 	        	pla=getIntent().getParcelableExtra("Player");
-	        	pla.createResultFile();
-	        	initialize(new Game1(pla.getId()),false);
+	        	pla.createResultFile(this);
+	        	initialize(new Game1(pla.getId(),pla.getName()),false);
 	        }
 	 }
 }

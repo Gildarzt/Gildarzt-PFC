@@ -6,6 +6,7 @@ import java.util.List;
 
 import android.os.Environment;
 import pfc.game.domain.Records;
+import pfc.game.domain.widgets.Click;
 
 /**ARP-18/11/13: this class creates patient roles that store personal data, results of test
  * and send them to a web page.
@@ -15,6 +16,7 @@ import pfc.game.domain.Records;
  */
 public class Patient {
 	private int Id;
+	private String name;
 	private List<Result> ResultList;
 	private int tries;
 	private int bTimes;
@@ -23,8 +25,9 @@ public class Patient {
 	private List<Integer>GoalList;
 	private List<Records>RecordList;
 	
-	public Patient(int Id,int tries){
+	public Patient(String name,int Id,int tries){
 		this.Id=Id;
+		this.name=name;
 		ResultList= new ArrayList<Result>();
 		GoalList=new ArrayList<Integer>();
 		RecordList=new ArrayList<Records>();
@@ -39,10 +42,10 @@ public class Patient {
 					 bonus combo. If he gets 5 he wins an extra life*/
 	}
 	
-	public boolean saveResults(){
+	public boolean saveResults(Click click){
 		boolean res=false;
 		FileWriter file=null;
-		String name=getId()+".txt";
+		String name=getName()+getId()+".txt";
 		File root=Environment.getExternalStorageDirectory();
 		if(root.canWrite()){
 			File dir=new File(root+"/pfc");
@@ -58,20 +61,28 @@ public class Patient {
 					e1.printStackTrace();
 				}
 			try{
-				file = new FileWriter(datafile);
+				file = new FileWriter(datafile,true);
 				BufferedWriter out=new BufferedWriter(file);
  
-				out.write("Id test: "+getResultList().get(0).getIdTest()+"\n");
+				out.write("IdTest: "+getResultList().get(0).getIdTest()+"\n");
 				out.write("Difficult: "+getResultList().get(0).getDifficult()+"\n");
+				out.write("nSuccess: "+click.getTotalSuccessClick()+"\n");
+				out.write("nFails: "+click.getTotalFailClick()+"\n");
+				out.write("SuccessSpree: "+click.getSuccessNormalClick()+"\n");
+				out.write("FailSpree: "+click.getFailNormalClick()+"\n");
+				out.write("SuccessBonusSpree: "+click.getSuccessBonusClick()+"\n");
+				out.write("FailBonusSpree"+click.getFailBonusClick()+"\n");
         	
 				for (int i = 0; i <getResultList().size(); i++)
 					if(getResultList().size()>i){
 						out.write(getResultList().get(i).getDescrp()+" ");
-						out.write(getResultList().get(i).isRes()+"\n");
+						out.write(getResultList().get(i).isRes()+" ");
+						out.write("Difficult: "+getResultList().get(i).getDifficult()+"\n");
 					}
 					else{
 						out.write(getResultList().get(i).getDescrp()+" ");
-						out.write(false+"\n");
+						out.write(false+" ");
+						out.write("Difficult: "+getResultList().get(i).getDifficult()+"\n");
 					}
 				res=true;
 				out.close();
@@ -205,5 +216,13 @@ public class Patient {
 
 	public void setRecordList(List<Records> recordList) {
 		RecordList = recordList;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

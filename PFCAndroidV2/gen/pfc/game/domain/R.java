@@ -28,10 +28,10 @@ public final class R {
         public static final int shape_login_button=0x7f020004;
     }
     public static final class id {
-        public static final int ArcadeMode=0x7f080026;
-        public static final int EditTextName=0x7f080024;
-        public static final int HistoryMode=0x7f080027;
-        public static final int action_settings=0x7f080028;
+        public static final int ArcadeMode=0x7f080025;
+        public static final int EditTextName=0x7f08001c;
+        public static final int HistoryMode=0x7f080026;
+        public static final int action_settings=0x7f080027;
         public static final int arcPlay=0x7f080002;
         public static final int arcadeBonus=0x7f080004;
         public static final int arcadeSpeed=0x7f080001;
@@ -40,9 +40,9 @@ public final class R {
         public static final int editTextNick=0x7f080010;
         public static final int editTextNick2=0x7f080020;
         public static final int editTextPass=0x7f080012;
-        public static final int editTextPassword=0x7f080023;
-        public static final int editTextPsiName=0x7f080021;
-        public static final int editTextSurname=0x7f080025;
+        public static final int editTextPassword=0x7f080022;
+        public static final int editTextPsiName=0x7f080024;
+        public static final int editTextSurname=0x7f08001e;
         public static final int etSpeed=0x7f080006;
         public static final int etTries=0x7f080007;
         public static final int imageView1=0x7f08001a;
@@ -56,14 +56,13 @@ public final class R {
         public static final int profileName=0x7f08000a;
         public static final int profileNick=0x7f080016;
         public static final int profilePassword=0x7f080017;
-        public static final int profilePsicName=0x7f08001b;
         public static final int profileSurname=0x7f080018;
         public static final int regButton=0x7f080011;
-        public static final int registerName=0x7f08001c;
-        public static final int registerNick=0x7f08001e;
-        public static final int registerPass=0x7f08001d;
-        public static final int registerPsiName=0x7f080022;
-        public static final int registerSurname=0x7f08001f;
+        public static final int registerName=0x7f08001b;
+        public static final int registerNick=0x7f08001f;
+        public static final int registerPass=0x7f080021;
+        public static final int registerPsiName=0x7f080023;
+        public static final int registerSurname=0x7f08001d;
         public static final int registerTextView=0x7f080013;
         public static final int sound=0x7f080008;
         public static final int textViewName=0x7f08000f;

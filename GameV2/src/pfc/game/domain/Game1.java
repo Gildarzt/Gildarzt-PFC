@@ -9,12 +9,14 @@ import com.badlogic.gdx.Screen;
 
 public class Game1 extends Game {
 	private int idPlayer;
+	private String namePlayer;
 	private Screen mainMenu;
 	private boolean arcade;
 	private ArcadeMode arc;
 	
-	public Game1(int idPlayer){
+	public Game1(int idPlayer,String namePlayer){
 		this.idPlayer=idPlayer;
+		this.namePlayer=namePlayer;
 	}
 	public Game1(){
 		
@@ -41,7 +43,7 @@ public class Game1 extends Game {
 			mainMenu=new GameScreen(this,arc);
 		}
 		else{
-			mainMenu = new MainMenuScreen(this,idPlayer); //cargar Main Menu Screen
+			mainMenu = new MainMenuScreen(this,idPlayer,namePlayer); //cargar Main Menu Screen
 			Assets.getMusic().play();	  
 			Assets.getMusic().setVolume(0.2f);
 		}
