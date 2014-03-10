@@ -26,7 +26,7 @@ public class PatientDAO extends DAO{
 				.prepareStatement("DELETE FROM paciente WHERE idpaciente = ? and nombre = ? and codigo_psicologo = ? ");
 			st.setInt(1, s.getId());
 			st.setString(2, s.getName());
-			st.setInt(3, s.getIdPsi());
+			st.setString(3, s.getIdPsi());
 		}catch(SQLException e){
 			e.getStackTrace();
 		}
@@ -39,9 +39,9 @@ public class PatientDAO extends DAO{
 		PreparedStatement st =null;
 		try{
 			st= connection.prepareStatement("INSERT INTO paciente VALUES(?,?,?)");
-			st.setInt(1, s.getId());
+			st.setInt(1, GetNumberOfIds());
 			st.setString(2, s.getName());
-			st.setInt(3, s.getIdPsi());
+			st.setString(3, s.getIdPsi());
 		}catch(SQLException e){
 			e.getStackTrace();
 		}
@@ -55,7 +55,7 @@ public class PatientDAO extends DAO{
 			int id = r.getInt("idpaciente");
 			String name = r.getString("nombre");
 			String surname =r.getString("apellido");
-			int psiCode = r.getInt("codigo_psicologo");
+			String psiCode = r.getString("codigo_psicologo");
 			List<Report> patientList=selectAllReportsByPatient(id); 
 			s = new Patient(id,name,surname,psiCode,patientList);
 		} catch (SQLException e) {
@@ -71,7 +71,7 @@ public class PatientDAO extends DAO{
 			st= connection.prepareStatement("SELECT * FROM paciente WHERE idpaciente = ? and nombre = ? and codigo_psicologo = ?");
 			st.setInt(1, ((Patient)o).getId());
 			st.setString(2, ((Patient)o).getName());
-			st.setInt(3, ((Patient)o).getIdPsi());
+			st.setString(3, ((Patient)o).getIdPsi());
 		}catch(SQLException e){
 			e.getSQLState();
 		}
@@ -87,7 +87,7 @@ public class PatientDAO extends DAO{
 			st= connection.prepareStatement("UPDATE paciente SET nombre = ?,codigo_psicologo = ?,apellido = ?"
 					+ " WHERE idpaciente=? and nombre=?");
 			st.setString(1, s.getName());
-			st.setInt(2, s.getIdPsi());
+			st.setString(2, s.getIdPsi());
 			st.setString(3, s.getSurname());
 			st.setInt(4,s.getId());
 			st.setString(5, s.getName());
@@ -116,5 +116,22 @@ public class PatientDAO extends DAO{
 			reportList.add((Report)iterador.next());
 		
 		return reportList;
+	}
+	public int GetNumberOfIds(){
+		int res=0;
+		PreparedStatement st=null;
+		ResultSet aux=null;
+		try {
+			st=connection.prepareStatement("Select idpaciente from paciente");
+			aux=st.executeQuery();
+			if(aux!=null){
+				aux.last();
+				res=aux.getInt("idpaciente");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res+1;
 	}
 }

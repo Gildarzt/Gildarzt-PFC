@@ -24,6 +24,7 @@ public class SearchPatient extends ActionSupport{
 			FindPatient(ad);
 			if(patientList.size()==1){
 				patient = patientList.get(0);
+				ActionContext.getContext().getSession().put("Patient", patient);
 				GetReports();
 				return SUCCESS;
 			}

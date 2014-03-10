@@ -53,7 +53,7 @@ public class MainMenu extends Activity{
 					intent.putExtra("Player", pla);
 					startActivity(intent);
 					UpdateDB();
-					SendResults();
+					//SendResults();
 			}    	
 	    });
 	}

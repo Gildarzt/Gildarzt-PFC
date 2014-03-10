@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+<web-app id="WebApp_ID" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 	<display-name>PFCServer</display-name>
 	<filter>
 		<filter-name>struts2</filter-name>
@@ -12,6 +15,15 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	<welcome-file-list>
-		<welcome-file>Title.jsp</welcome-file>
+		<welcome-file>TitlePage.jsp</welcome-file>
 	</welcome-file-list>
+	<servlet>
+	    <servlet-name>Listener</servlet-name>
+	    <servlet-class>pfc.game.comunication.Listener</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>Listener</servlet-name>
+	    <url-pattern>/Listener</url-pattern>
+	</servlet-mapping>
 </web-app>
+

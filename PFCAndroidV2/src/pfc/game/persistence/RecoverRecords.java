@@ -45,7 +45,7 @@ public class RecoverRecords {
 					br.close();
 					archivo.close();
 					file.delete();
-					dir.delete();
+					//dir.delete();
 				} catch (IOException e) {
 					System.out.println("Se ha producido un error al intentar leer el archivo");
 				}

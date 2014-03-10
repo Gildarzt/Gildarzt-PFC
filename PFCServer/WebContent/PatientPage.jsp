@@ -82,6 +82,32 @@ pageEncoding="ISO-8859-1"%>
 								</s:form>
 								</td>
 							</tr>
+						</tbody>
+						<thead align="center">
+							<tr>
+								<td>
+									<div id="header" align="center"><span class="blue">Gráficas</span></div>
+								</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div id="header" align="center">Gráfica de aciertos</div>						
+								</td>
+								<td>
+									<div id="header" align="center">Gráfica de fallos</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<img src="ServletSuccessGraph"/>					
+								</td>
+								<td>
+									<img src="ServletFailGraph"/>
+								</td>
+							</tr>
+						</tbody>
 					</table>
 				</div>
 			</div>

@@ -1,14 +1,18 @@
 package pfc.game.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Patient {
+import pfc.game.persistence.PersistentObj;
+
+@SuppressWarnings("serial")
+public class Patient implements Serializable, PersistentObj {
 	private int id;
 	private String name;
 	private String surname;
-	private int idPsi;
+	private String idPsi;
 	private List<Report> reportList;
-	public Patient(int id, String name, String surname, int idPsi, List<Report> reportList) {
+	public Patient(int id, String name, String surname, String idPsi, List<Report> reportList) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -28,10 +32,10 @@ public class Patient {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getIdPsi() {
+	public String getIdPsi() {
 		return idPsi;
 	}
-	public void setIdPsi(int idPsi) {
+	public void setIdPsi(String idPsi) {
 		this.idPsi = idPsi;
 	}
 	public List<Report> getReportList() {

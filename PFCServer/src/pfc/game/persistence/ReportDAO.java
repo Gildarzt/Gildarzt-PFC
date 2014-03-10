@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 import pfc.game.domain.Report;
 import pfc.game.domain.Try;
 
@@ -36,16 +37,17 @@ public class ReportDAO extends DAO{
 		Report s = (Report) o;
 		PreparedStatement st =null;
 		try{
-			st= connection.prepareStatement("INSERT INTO report VALUES(?,?,?,?,?,?,?,?)");
-			st.setInt(1, s.getId());
-			st.setDate(2, s.getDate());
+			st= connection.prepareStatement("INSERT INTO report VALUES(?,?,?,?,?,?,?,?,?,?)");
+			st.setInt(1, GetNumberOfIds());
+			st.setDate(2, (Date) s.getDate());
 			st.setInt(3, s.getnSuccess());
 			st.setInt(4, s.getnFailure());
-			st.setInt(5, s.getnBonus());
-			st.setInt(6, idPatient);
-			st.setInt(7, s.isState() ? 1 : 0);
-			st.setInt(8, s.getSuccessSpree());
-			st.setInt(9, s.getFailSpree());
+			st.setInt(5, idPatient);
+			st.setInt(6, s.getSuccessSpree());
+			st.setInt(7, s.getFailSpree());
+			st.setInt(8, s.getSuccessBonusSpree());
+			st.setInt(9, s.getFailBonusSpree());
+			st.setInt(10, s.getInitialDifficult());
 		}catch(SQLException e){
 			e.getStackTrace();
 		}
@@ -56,20 +58,12 @@ public class ReportDAO extends DAO{
 	protected PersistentObj selectObject(ResultSet r){
 		Report s = null;
 		try {
-			int id = r.getInt("idinforme");
-			Date date = r.getDate("fecha");
-			int nSuccess = r.getInt("numero_aciertos");
-			int nFailures = r.getInt("numero_fallos");
-			int nBonus = r.getInt("numero_bonus");
-			int idPatient = r.getInt("id_paciente");
-			List<Try> TryList=selectAllTriesByReport(id); 
-			boolean state=false;
-			if(r.getInt("state")==1)
-				state=true;
-			int successSpree=r.getInt("successspree");
-			int failSpree=r.getInt("failspree");
-			s = new Report(id,date,nSuccess,nFailures,nBonus,idPatient,successSpree,failSpree,TryList,state);
-		} catch (SQLException e) {
+			int id=r.getInt("idinforme");
+			s=new Report(id,r.getDate("fecha"),r.getInt("numero_aciertos"),
+					r.getInt("numero_fallos"),r.getInt("id_paciente"),r.getInt("successspree"),
+					r.getInt("failspree"),r.getInt("successbonusspree"),r.getInt("failbonusspree"),
+					r.getInt("initialdifficult"),selectAllTriesByReport(id));
+			} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -93,16 +87,18 @@ public class ReportDAO extends DAO{
 		PreparedStatement st=null;
 		try{
 			st= connection.prepareStatement("UPDATE informe SET fecha = ?,numero_aciertos = ?,numero_fallos = ?,"
-					+ "numero_bonus = ?,id_paciente = ?,state = ?, successspree = ?,failspree = ? WHERE idinforme=?");
-			st.setDate(1,s.getDate());
+					+ "id_paciente = ?,successspree = ?,failspree = ?,successbonusspree = ?,failbonusspree = ? "
+					+ "initialdificult = ? WHERE idinforme=?");
+			st.setDate(1, (Date) s.getDate());
 			st.setInt(2, s.getnSuccess());
 			st.setInt(3, s.getnFailure());
-			st.setInt(4, s.getnBonus());
-			st.setInt(5, s.getIdPatient());
-			st.setInt(6, s.getId());
-			st.setInt(7, s.isState() ? 1 : 0);
-			st.setInt(8, s.getSuccessSpree());
-			st.setInt(9, s.getFailSpree());
+			st.setInt(4, idPatient);
+			st.setInt(5, s.getSuccessSpree());
+			st.setInt(6, s.getFailSpree());
+			st.setInt(7, s.getSuccessBonusSpree());
+			st.setInt(8, s.getFailBonusSpree());
+			st.setInt(9, s.getInitialDifficult());
+			st.setInt(10, s.getId());
 		}catch(SQLException e){
 			e.getStackTrace();
 		}
@@ -128,5 +124,22 @@ public class ReportDAO extends DAO{
 			tryList.add((Try)iterador.next());
 		
 		return tryList;
+	}
+	public int GetNumberOfIds(){
+		int res=0;
+		PreparedStatement st=null;
+		ResultSet aux=null;
+		try {
+			st=connection.prepareStatement("Select idinforme from informe");
+			aux=st.executeQuery();
+			if(aux!=null){
+				aux.last();
+				res=aux.getInt("idinforme");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res+1;
 	}
 }

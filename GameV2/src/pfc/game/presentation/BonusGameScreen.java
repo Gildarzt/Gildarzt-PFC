@@ -111,7 +111,7 @@ public class BonusGameScreen implements Screen{
 					failBonusClick();
 				}
 				if(!world.isArcMode())
-					world.getPatient().getResultList().add(new Result(1,world.getDifficult(),debugC,"Bonus Time"));
+					world.getPatient().getResultList().add(new Result(1,world.getDifficult(),debugC,"BonusTime"));
 			}
 			world.setTouched(true);
 			if(!world.isArcMode())

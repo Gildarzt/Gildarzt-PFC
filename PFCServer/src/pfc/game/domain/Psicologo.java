@@ -1,9 +1,13 @@
 package pfc.game.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Psicologo {
+import pfc.game.persistence.PersistentObj;
+
+@SuppressWarnings("serial")
+public class Psicologo implements Serializable, PersistentObj{
 	private String id;
 	private String name;
 	private String password;

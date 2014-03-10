@@ -5,49 +5,52 @@
 
 <struts>
 	<package name="ISOII" namespace="/" extends="struts-default">
-		<action name="Login" class="actions.Login">
+		<action name="Login" class="pfc.game.actions.Login">
 			<result name="success">PsiMainPage.jsp</result>
 			<result name="error">LoginError.jsp</result>
 		</action>
-		<action name="MoveToRegister" class="actions.MoveToRegister">
+		<action name="MoveToRegister" class="pfc.game.actions.MoveToRegister">
 			<result name="success">RegisterPage.jsp</result>
 			<result name="error">RegisterError.jsp</result>
 		</action>
-		<action name="CloseSession" class="actions.CloseSession">
-			<result name="success">Title.jsp</result>
+		<action name="CloseSession" class="pfc.game.actions.CloseSession">
+			<result name="success">TitlePage.jsp</result>
 			<result name="error">CloseSessionError.jsp</result>
 		</action>
-		<action name="ShowPatient" class="actions.ShowPatient">
+		<action name="ShowPatient" class="pfc.game.actions.ShowPatient">
 			<result name="success">PatientPage.jsp</result>
 			<result name="error">ShowPatientError.jsp</result>
 		</action>
-		<action name="SearchPatient" class="actions.SearchPatient">
+		<action name="SearchPatient" class="pfc.game.actions.SearchPatient">
 			<result name="success">PatienPage.jsp</result>
 			<result name="moreThanOne">PatientListPage.jsp</result>
 			<result name="error">SearchPatientError.jsp</result>
 		</action>
-		<action name="ShowReport" class="actions.ShowReport">
+		<action name="ShowReport" class="pfc.game.actions.ShowReport">
 			<result name="success">ReportPage.jsp</result>
 			<result name="error">ShowReportError.jsp</result>
 		</action>
-		<action name="ChangePersonalData" class="actions.ChangePersonalData">
+		<action name="ChangePersonalData" class="pfc.game.actions.ChangePersonalData">
 			<result name="success">PsiMainPage.jsp</result>
 			<result name="error">UpdateDataError.jsp</result>
 		</action>
-		<action name="ReturnToTitle" class="actions.ReturnToTitle">
+		<action name="ReturnToTitle" class="pfc.game.actions.ReturnToTitle">
 			<result name="success">TitlePage.jsp</result>
 		</action>
-		<action name="ReturnToPsiMainPage" class="actions.ReturnToPsiMainPage">
+		<action name="ReturnToPsiMainPage" class="pfc.game.actions.ReturnToPsiMainPage">
 			<result name="success">PsiMainPage.jsp</result>
 		</action>
-		<action name="RegisterPsi" class="actions.RegisterPsi">
+		<action name="RegisterPsi" class="pfc.game.actions.RegisterPsi">
 			<result name="success">TitlePage.jsp</result>
 			<result name="error">RegisterError.jsp</result>
 		</action>
-		<action name="SearchReport" class="actions.SearchReport">
+		<action name="SearchReport" class="pfc.game.actions.SearchReport">
 			<result name="success">ReportPage.jsp</result>
 			<result name="moreThanOne">ReportListPage.jsp</result>
 			<result name="error">SearchReportError.jsp</result>
+		</action>
+		<action name="Listener">
+  			<result>/Listener</result>
 		</action>
 	</package>
 </struts>

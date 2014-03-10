@@ -32,7 +32,7 @@ public class TryDAO extends DAO{
 		PreparedStatement st =null;
 		try{
 			st= connection.prepareStatement("INSERT INTO report VALUES(?,?,?,?,?,?)");
-			st.setInt(1, s.getId());
+			st.setInt(1, GetNumberOfIds());
 			st.setInt(2, s.isResult() ? 1 : 0);
 			st.setInt(3, s.isBonus_ready() ? 1 : 0);
 			st.setInt(4, s.isBonus_on() ? 1 : 0);
@@ -111,5 +111,22 @@ public class TryDAO extends DAO{
 			e.getStackTrace();
 		}
 		return st;
+	}
+	public int GetNumberOfIds(){
+		int res=0;
+		PreparedStatement st=null;
+		ResultSet aux=null;
+		try {
+			st=connection.prepareStatement("Select idintento from intento");
+			aux=st.executeQuery();
+			if(aux!=null){
+				aux.last();
+				res=aux.getInt("idintento");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res+1;
 	}
 }

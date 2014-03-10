@@ -1,6 +1,8 @@
 package pfc.game.persistence;
 
 import java.io.*;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,25 +66,27 @@ public class Patient {
 				file = new FileWriter(datafile,true);
 				BufferedWriter out=new BufferedWriter(file);
  
-				out.write("IdTest: "+getResultList().get(0).getIdTest()+"\n");
-				out.write("Difficult: "+getResultList().get(0).getDifficult()+"\n");
-				out.write("nSuccess: "+click.getTotalSuccessClick()+"\n");
-				out.write("nFails: "+click.getTotalFailClick()+"\n");
-				out.write("SuccessSpree: "+click.getSuccessNormalClick()+"\n");
-				out.write("FailSpree: "+click.getFailNormalClick()+"\n");
-				out.write("SuccessBonusSpree: "+click.getSuccessBonusClick()+"\n");
-				out.write("FailBonusSpree"+click.getFailBonusClick()+"\n");
+				out.write("IdTest "+getResultList().get(0).getIdTest()+"\n");
+				out.write("InitialDifficult "+getResultList().get(0).getDifficult()+"\n");
+				out.write("nSuccess "+click.getTotalSuccessClick()+"\n");
+				out.write("nFails "+click.getTotalFailClick()+"\n");
+				out.write("SuccessSpree "+click.getSuccessNormalClick()+"\n");
+				out.write("FailSpree "+click.getFailNormalClick()+"\n");
+				out.write("SuccessBonusSpree "+click.getSuccessBonusClick()+"\n");
+				out.write("FailBonusSpree "+click.getFailBonusClick()+"\n");
         	
+				DecimalFormat df = new DecimalFormat("##.##");
+				df.setRoundingMode(RoundingMode.DOWN);
 				for (int i = 0; i <getResultList().size(); i++)
 					if(getResultList().size()>i){
-						out.write(getResultList().get(i).getDescrp()+" ");
-						out.write(getResultList().get(i).isRes()+" ");
-						out.write("Difficult: "+getResultList().get(i).getDifficult()+"\n");
+						out.write("Mode_"+i+" "+getResultList().get(i).getDescrp()+" ");
+						out.write("Result_"+i+" "+getResultList().get(i).isRes()+" ");
+						out.write("Difficult_"+i+" "+df.format(getResultList().get(i).getDifficult())+"\n");
 					}
 					else{
-						out.write(getResultList().get(i).getDescrp()+" ");
-						out.write(false+" ");
-						out.write("Difficult: "+getResultList().get(i).getDifficult()+"\n");
+						out.write("Mode_"+i+" "+getResultList().get(i).getDescrp()+" ");
+						out.write("Result_"+i+" "+false+" ");
+						out.write("Difficult_"+i+" "+df.format(getResultList().get(i).getDifficult())+"\n");
 					}
 				res=true;
 				out.close();

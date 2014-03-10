@@ -155,7 +155,7 @@ public class GameScreen implements Screen{
 	    			/**Store the result*/
 	    			if(!world.isArcMode()){
 	    				if(world.getbTime()>=3)
-	    					world.getPatient().getResultList().add(new Result(1,world.getDifficult(),debugC,"Normal, Bonus On"));
+	    					world.getPatient().getResultList().add(new Result(1,world.getDifficult(),debugC,"BonusOn"));
 	    				else
 	    					world.getPatient().getResultList().add(new Result(1,world.getDifficult(),debugC,"Normal"));
 	    			}

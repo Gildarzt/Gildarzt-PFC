@@ -32,6 +32,7 @@ public class ShowPatient extends ActionSupport{
 		for(Patient pat:ad.getPatientList())
 			if(pat.getId()==id){
 				patient=pat;
+				ActionContext.getContext().getSession().put("Patient", patient);
 				res=true;
 			}
 		return res;

@@ -96,8 +96,9 @@ public class FileResult {
 			});
 			if(dirList!=null)
 				for(String fileName:dirList){
-					if(SendReport(fileName))
+					if(SendReport(fileName)){
 						System.out.println("Se ha enviado correctamente");
+					}
 					else
 						System.out.println("Ha ocurrido un error");
 				}
@@ -113,9 +114,14 @@ public class FileResult {
 		String delim="\n";
 		String[] tokens=recoveryPool.split(delim);
 		int i=0;
-		for(i=i+1;i<tokens.length;i++){
+		for(;i<tokens.length;i++){
 			String[]aux=tokens[i].split(" ");
+			System.out.println(aux.toString());
 			httpclient.addNameValue(aux[0], aux[1]);
+			if(aux.length==6){
+				httpclient.addNameValue(aux[2], aux[3]);
+				httpclient.addNameValue(aux[4], aux[5]);
+			}
 		}
 		
 		httpclient.setOnExecuteHttpPostAsyncListener(new OnExecuteHttpPostAsyncListener(){
@@ -146,12 +152,12 @@ public class FileResult {
 				listenerAsyncPost.onErrorAsyncPost("Se ha producido un error " + message);
 		    }
 		});      
-		httpclient.executeHttpPost("Aquí la url de vuestro servicio");
+		httpclient.executeHttpPost("http://192.168.1.14:8080/PFCServer/Listener");
 		return res;
 	}
 	
 	private String parseFile(String fileName){
-		String nomarchivo = fileName+".txt";
+		String nomarchivo = fileName;
 		String todo="";
 		File root = Environment.getExternalStorageDirectory();
 		if(root.canRead()){
@@ -165,13 +171,13 @@ public class FileResult {
 					BufferedReader br = new BufferedReader(archivo);
 					String linea = br.readLine();
 					while (linea != null) {
-						todo = todo + linea + " ";
+						todo = todo + linea + "\n";
 						linea = br.readLine();
 					}
 					br.close();
 					archivo.close();
-					file.delete();
-					dir.delete();
+					//file.delete();
+					//dir.delete();
 				} catch (IOException e) {
 					System.out.println("Se ha producido un error al intentar leer el archivo");
 				}

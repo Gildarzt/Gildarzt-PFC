@@ -20,7 +20,7 @@ public class SearchReport extends ActionSupport{
 			Psicologo ad = (Psicologo) ActionContext.getContext().getSession().get("psicologo");
 			if (ad == null)
 				throw new Exception("No está usted logueado");
-			FindReport(ad);
+			FindReport();
 			if(reportList.size()==1){
 				report = reportList.get(0);
 				return SUCCESS;
@@ -32,11 +32,13 @@ public class SearchReport extends ActionSupport{
 			return ERROR;
 		}
 	}
-	public void FindReport(Psicologo ad){
-		for(Patient pat:ad.getPatientList())
+	public void FindReport(){
+		Patient pat=(Patient) ActionContext.getContext().getSession().get("Patient");
+		if(pat!=null){
 			for(Report rep:pat.getReportList())
 				if(rep.getDate().equals(date))
 					reportList.add(rep);
+		}
 	}
 	public Date getDate() {
 		return date;

@@ -1,6 +1,11 @@
 package pfc.game.domain;
 
-public class Try {
+import java.io.Serializable;
+
+import pfc.game.persistence.PersistentObj;
+
+@SuppressWarnings("serial")
+public class Try implements Serializable, PersistentObj{
 	private int id;
 	private boolean result;
 	private boolean bonus_ready;/**This one is used to know if the try had the bonus option open*/

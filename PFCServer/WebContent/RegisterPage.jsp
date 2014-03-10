@@ -42,8 +42,8 @@ pageEncoding="ISO-8859-1"%>
 								<td>
 									<s:form action="RegisterPsi">
 										<s:textfield name="id" label="Código Psicologo" value=""/>
-										<s:password name="name" label="Usuario" value=""/>
-										<s:textfield name="password" label="contraseña" value=""/>
+										<s:textfield name="name" label="Usuario" value=""/>
+										<s:password name="password" label="contraseña" value=""/>
 										<s:submit value="Aceptar" align="left"/>
 									</s:form>
 								</td>

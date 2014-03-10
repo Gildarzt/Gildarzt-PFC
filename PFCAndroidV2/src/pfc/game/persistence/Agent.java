@@ -197,9 +197,10 @@ public class Agent extends AndroidApplication{
 			db2.close();
 			dbGoalHelper.close();
 		}
+		c.close();
 		db.close();
 		dbPGolHelper.close();
-		c.close();
+		
 		return goal_listPlayer;
 	}
 	
