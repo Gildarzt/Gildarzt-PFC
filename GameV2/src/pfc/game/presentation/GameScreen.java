@@ -235,10 +235,12 @@ public class GameScreen implements Screen{
 		debugC=true;
 		world.setbTime(world.getbTime()+1);
 		if(!world.isArcMode()){
-			world.getClick().setSuccessNormalClick(world.getClick().getSuccessNormalClick()+1);
+			world.getClick().setSucAuxNormalClick(world.getClick().getSucAuxNormalClick()+1);
+			if(world.getClick().getSucAuxNormalClick()>world.getClick().getSuccessNormalClick())
+				world.getClick().setSuccessNormalClick(world.getClick().getSucAuxNormalClick());
 			world.getClick().setTotalSuccessClick(world.getClick().getTotalSuccessClick()+1);
 			if(world.getDifficult()>=3){
-				world.getClick().setFailNormalClick(0);
+				world.getClick().setFailAuxNormalClick(0);;
 				world.updateRecords();
 			}
 		}
@@ -248,11 +250,13 @@ public class GameScreen implements Screen{
 		debugI=true;
 		world.setbTime(0);
 		if(!world.isArcMode()){
-			world.getClick().setFailNormalClick(world.getClick().getFailNormalClick()+1);
+			world.getClick().setFailAuxNormalClick(world.getClick().getFailAuxNormalClick()+1);
+			if(world.getClick().getFailAuxNormalClick()>world.getClick().getFailNormalClick())
+				world.getClick().setFailNormalClick(world.getClick().getFailAuxNormalClick());
 			world.getClick().setTotalFailClick(world.getClick().getTotalFailClick()+1);
 			if(world.getDifficult()>=3){
 				/**I put rights clicks to 0 because i want to know the number of consecutive clicks*/
-				world.getClick().setSuccessNormalClick(0);
+				world.getClick().setSucAuxNormalClick(0);
 				world.getPatient().setLifes(world.getPatient().getLifes()-1);
 				world.updateRecords();
 			}

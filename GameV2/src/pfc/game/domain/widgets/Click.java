@@ -14,8 +14,12 @@ package pfc.game.domain.widgets;
 public class Click {
 	private int successNormalClick;
 	private int failNormalClick;
+	private int sucAuxNormalClick;
+	private int failAuxNormalClick;
 	private int successBonusClick;
 	private int failBonusClick;
+	private int sucAuxBonusClick;
+	private int failAuxBonusClick;
 	private int totalSuccessClick;
 	private int totalFailClick;
 	
@@ -27,14 +31,23 @@ public class Click {
 		this.failBonusClick = 0;
 		this.totalSuccessClick = 0;
 		this.totalFailClick = 0;
+		this.sucAuxNormalClick=0;
+		this.failAuxNormalClick=0;
+		this.sucAuxBonusClick=0;
+		this.failAuxBonusClick=0;
 	}
-	public Click(Click click){
-		this.successNormalClick = click.getSuccessNormalClick();
+	public Click(Click click) {
+		super();
+		this.successNormalClick = click.getSucAuxNormalClick();
 		this.failNormalClick = click.getFailNormalClick();
+		this.sucAuxNormalClick = click.getSucAuxNormalClick();
+		this.failAuxNormalClick = click.getFailAuxNormalClick();
 		this.successBonusClick = click.getSuccessBonusClick();
 		this.failBonusClick = click.getFailBonusClick();
 		this.totalSuccessClick = click.getTotalSuccessClick();
 		this.totalFailClick = click.getTotalFailClick();
+		this.sucAuxBonusClick=click.getSucAuxBonusClick();
+		this.failAuxBonusClick=click.getFailAuxBonusClick();
 	}
 	public int getSuccessNormalClick() {
 		return successNormalClick;
@@ -47,6 +60,18 @@ public class Click {
 	}
 	public void setFailNormalClick(int failNormalClick) {
 		this.failNormalClick = failNormalClick;
+	}
+	public int getSucAuxNormalClick() {
+		return sucAuxNormalClick;
+	}
+	public void setSucAuxNormalClick(int sucAuxNormalClick) {
+		this.sucAuxNormalClick = sucAuxNormalClick;
+	}
+	public int getFailAuxNormalClick() {
+		return failAuxNormalClick;
+	}
+	public void setFailAuxNormalClick(int failAuxNormalClick) {
+		this.failAuxNormalClick = failAuxNormalClick;
 	}
 	public int getSuccessBonusClick() {
 		return successBonusClick;
@@ -71,5 +96,17 @@ public class Click {
 	}
 	public void setTotalFailClick(int totalFailClick) {
 		this.totalFailClick = totalFailClick;
+	}
+	public int getSucAuxBonusClick() {
+		return sucAuxBonusClick;
+	}
+	public void setSucAuxBonusClick(int sucAuxBonusClick) {
+		this.sucAuxBonusClick = sucAuxBonusClick;
+	}
+	public int getFailAuxBonusClick() {
+		return failAuxBonusClick;
+	}
+	public void setFailAuxBonusClick(int failAuxBonusClick) {
+		this.failAuxBonusClick = failAuxBonusClick;
 	}
 }

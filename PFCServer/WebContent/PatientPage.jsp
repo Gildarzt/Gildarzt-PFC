@@ -41,9 +41,9 @@ pageEncoding="ISO-8859-1"%>
 							<tr>
 								<td>
 									<s:form value="patient">
-										Id:<s:property value="id" /> <br>
-										Nombre:<s:property value="name" /> <br>
-										Apellido:<s:property value="surname" /> <br>
+										<s:textfield label="Id" name="id" readonly="true"></s:textfield>
+										<s:textfield label="Nombre" name="name" readonly="true"></s:textfield>
+										<s:textfield label="Apellido" name="surname" readonly="true"></s:textfield>
 									</s:form>
 								</td>
 							</tr>
@@ -70,7 +70,11 @@ pageEncoding="ISO-8859-1"%>
 								<td>
 									<s:iterator value="reportList">
 										<s:form action="ShowReport">
-											Fecha: <s:property value="date" /> <br>
+											<s:textfield label="id" name="id" readonly="true"></s:textfield>
+											<s:textfield label="fecha" name="date" readonly="true"></s:textfield>
+											<s:textfield label="Nº aciertos" name="nSuccess" readonly="true"></s:textfield>
+											<s:textfield label="Nº fallos" name="nFailure" readonly="true"></s:textfield>
+											<s:submit value="Mostrar" align="left"/>
 	  										<br>
 										</s:form>
 									</s:iterator>

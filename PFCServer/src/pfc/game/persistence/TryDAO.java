@@ -31,13 +31,13 @@ public class TryDAO extends DAO{
 		Try s = (Try) o;
 		PreparedStatement st =null;
 		try{
-			st= connection.prepareStatement("INSERT INTO report VALUES(?,?,?,?,?,?)");
-			st.setInt(1, GetNumberOfIds());
+			st= connection.prepareStatement("INSERT INTO intento VALUES(?,?,?,?,?,?)");
+			st.setInt(1, s.getId());
 			st.setInt(2, s.isResult() ? 1 : 0);
 			st.setInt(3, s.isBonus_ready() ? 1 : 0);
 			st.setInt(4, s.isBonus_on() ? 1 : 0);
 			st.setInt(5, s.getIdReport());
-			st.setInt(6, s.getDifficult());
+			st.setDouble(6, s.getDifficult());
 		}catch(SQLException e){
 			e.getStackTrace();
 		}
@@ -94,7 +94,7 @@ public class TryDAO extends DAO{
 			st.setInt(2, s.isBonus_ready() ? 1 : 0);
 			st.setInt(3, s.isBonus_on() ? 1 : 0);
 			st.setInt(4, s.getIdReport());
-			st.setInt(5, s.getDifficult());
+			st.setDouble(5, s.getDifficult());
 			st.setInt(6, s.getId());
 		}catch(SQLException e){
 			e.getStackTrace();

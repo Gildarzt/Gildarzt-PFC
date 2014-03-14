@@ -25,7 +25,7 @@
 							<tr>
 								<td>
 									<s:form action= "Login">
-										<s:textfield name="idPsi" label="Código" value=""/>
+										<s:textfield name="id" label="Código" value=""/>
 										<s:password name="password" label="Contraseña"/>
 										<s:submit  value="Acceder" align="left"/>
 									</s:form>

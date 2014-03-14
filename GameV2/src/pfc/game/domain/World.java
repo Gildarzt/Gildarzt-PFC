@@ -46,6 +46,8 @@ public class World {
 		this.difficult=world.getDifficult();
 		this.arcMode=world.isArcMode();
 		this.click=new Click(world.getClick());
+		if(arcMode)
+			this.arc=world.getArc();
 		
 	}
 	/**This constructor is when you want to create a new world with things of old one.*/
@@ -60,6 +62,8 @@ public class World {
 		//Store the rights and wrongs clicks in each mode, normal and bonus.
 		this.click=new Click(world.getClick());
 		this.arcMode=world.isArcMode();
+		if(arcMode)
+			this.arc=world.getArc();
 	}
 	/**Arcade mode */
 	public World(ArcadeMode arc) {

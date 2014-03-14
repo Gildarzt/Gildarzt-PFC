@@ -22,14 +22,12 @@ pageEncoding="ISO-8859-1"%>
 				<div>
 				<s:iterator value="reportList">
 					<s:form action="ShowReport">
-						Id: <s:property value="id" /> <br>
-						Fecha: <s:property value="date" /> <br>
-						Número de aciertos: <s:property value="nSuccess" /> <br>
-						Número de fallos: <s:property value="nFailure" /> <br>
-						Número de aciertos en bonus: <s:property value="nBonus" /> <br>
-						Mayor racha de aciertos: <s:property value="successSpree" /> <br>
-						Mayor racha de fallos: <s:property value="failSpree" /> <br>
-	  					<br>
+						<s:textfield label="id paciente" name="idPatient" readonly="true"></s:textfield>
+						<s:textfield label="id" name="id" readonly="true"></s:textfield>
+						<s:textfield label="fecha" name="date" readonly="true"></s:textfield>
+						<s:textfield label="Nª aciertos" name="nSuccess" readonly="true"></s:textfield>
+						<s:textfield label="Nª fallos" name="nFailure" readonly="true"></s:textfield>
+	  					<s:submit value="mostrar" align="left"></s:submit>
 					</s:form>
 				</s:iterator>
 				</div>

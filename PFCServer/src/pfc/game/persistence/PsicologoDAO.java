@@ -64,12 +64,11 @@ public class PsicologoDAO extends DAO{
 		Psicologo p = (Psicologo) o;
 		PreparedStatement st =null;
 		try{
-			st= connection.prepareStatement("UPDATE psicologo SET idpsicologo=?,nombre=?, contraseña=? WHERE idpsicologo=? and nombre=?");
+			st= connection.prepareStatement("UPDATE psicologo SET idpsicologo=?,nombre=?, contraseña=? WHERE idpsicologo=?");
 			st.setString(1, p.getId());
 			st.setString(2, p.getName());
 			st.setString(3, p.getPassword());
 			st.setString(4, p.getId());
-			st.setString(5, p.getName());
 		}catch(SQLException e){
 			e.printStackTrace();
 		}

@@ -48,10 +48,10 @@ pageEncoding="ISO-8859-1"%>
 								<td>
 									<s:iterator value="patientList">
 										<s:form action="ShowPatient">
-											Id: <s:property value="id" /> <br>
-											Nombre: <s:property value="name" /> <br>
-											Primer apellido: <s:property value="surname" /> <br>
-											Id Psicologo: <s:property value="idPsi" /> <br>
+											<s:textfield label="id" name="id" readonly="true"></s:textfield>
+											<s:textfield label="nombre" name="name" readonly="true"></s:textfield>
+											<s:textfield label="apellido" name="surname" readonly="true"></s:textfield>
+											<s:submit value="Mostrar" align="left"/>
 	  										<br>
 										</s:form>
 									</s:iterator>
@@ -66,13 +66,12 @@ pageEncoding="ISO-8859-1"%>
 								<td>
 									<s:iterator value="reportList">
 										<s:form action="ShowReport">
-											Id: <s:property value="id" /> <br>
-											Fecha: <s:property value="date" /> <br>
-											Número de aciertos: <s:property value="nSuccess" /> <br>
-											Número de fallos: <s:property value="nFailure" /> <br>
-											Número de aciertos en bonus: <s:property value="nBonus" /> <br>
-											Mayor racha de aciertos: <s:property value="successSpree" /> <br>
-											Mayor racha de fallos: <s:property value="failSpree" /> <br>
+											<s:textfield label="id paciente" name="idPatient" readonly="true"></s:textfield>
+											<s:textfield label="id" name="id" readonly="true"></s:textfield>
+											<s:textfield label="fecha" name="date" readonly="true"></s:textfield>
+											<s:textfield label="Nº aciertos" name="nSuccess" readonly="true"></s:textfield>
+											<s:textfield label="Nº fallos" name="nFailure" readonly="true"></s:textfield>
+											<s:submit value="Mostrar" align="left"/>
 	  										<br>
 										</s:form>
 									</s:iterator>
@@ -99,15 +98,14 @@ pageEncoding="ISO-8859-1"%>
 							</tr>
 							<tr>
 								<td>
-									<s:form value="psic">
-										Id:<s:property value="id" /> <br>
-										Nombre:<s:property value="name" /> <br>
-										Contraseña:<s:property value="password" /> <br>
+									<s:form value="psi">
+										<s:textfield label="Código" name="id" readonly="true"></s:textfield>
+										<s:textfield label="Nombre" name="name" readonly="true"></s:textfield>
+										<s:textfield label="Contraseña" name="password" readonly="true"></s:textfield>
 									</s:form>
 								</td>
 								<td>
 									<s:form action="ChangePersonalData">
-										<s:textfield name="id" label="id del psicologo"  value=""/>
 										<s:textfield name="name" label="Nombre de Usuario" value=""/>
 										<s:textfield name="password" label="Contraseña"  value=""/>									
 										<s:submit value="Cambiar" align="right"/>

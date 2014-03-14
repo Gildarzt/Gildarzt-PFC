@@ -22,10 +22,9 @@ pageEncoding="ISO-8859-1"%>
 				<div>
 				<s:iterator value="patientList">
 					<s:form action="ShowPatient">
-						Id: <s:property value="id" /> <br>
-						Nombre: <s:property value="name" /> <br>
-						Primer apellido: <s:property value="surname" /> <br>
-						Id Psicologo: <s:property value="idPsi" /> <br>
+						<s:textfield label="Id" name="id" readonly="true"></s:textfield>
+						<s:textfield label="Nombre" name="name" readonly="true"></s:textfield>
+						<s:textfield label="Apellido" name="surname" readonly="true"></s:textfield>
 	  					<br>
 					</s:form>
 				</s:iterator>

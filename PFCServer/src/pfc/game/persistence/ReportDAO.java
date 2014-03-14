@@ -37,17 +37,18 @@ public class ReportDAO extends DAO{
 		Report s = (Report) o;
 		PreparedStatement st =null;
 		try{
-			st= connection.prepareStatement("INSERT INTO report VALUES(?,?,?,?,?,?,?,?,?,?)");
-			st.setInt(1, GetNumberOfIds());
+			st= connection.prepareStatement("INSERT INTO informe VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+			st.setInt(1, s.getId());
 			st.setDate(2, (Date) s.getDate());
 			st.setInt(3, s.getnSuccess());
 			st.setInt(4, s.getnFailure());
-			st.setInt(5, idPatient);
+			st.setInt(5, s.getIdPatient());
 			st.setInt(6, s.getSuccessSpree());
 			st.setInt(7, s.getFailSpree());
 			st.setInt(8, s.getSuccessBonusSpree());
 			st.setInt(9, s.getFailBonusSpree());
 			st.setInt(10, s.getInitialDifficult());
+			st.setInt(11, s.isReadState() ? 1:0);
 		}catch(SQLException e){
 			e.getStackTrace();
 		}
@@ -59,10 +60,12 @@ public class ReportDAO extends DAO{
 		Report s = null;
 		try {
 			int id=r.getInt("idinforme");
+			boolean readState=false;
+			if(r.getInt("readstate")==1) readState=true;
 			s=new Report(id,r.getDate("fecha"),r.getInt("numero_aciertos"),
 					r.getInt("numero_fallos"),r.getInt("id_paciente"),r.getInt("successspree"),
 					r.getInt("failspree"),r.getInt("successbonusspree"),r.getInt("failbonusspree"),
-					r.getInt("initialdifficult"),selectAllTriesByReport(id));
+					r.getInt("initialdifficult"),readState,selectAllTriesByReport(id));
 			} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -88,7 +91,7 @@ public class ReportDAO extends DAO{
 		try{
 			st= connection.prepareStatement("UPDATE informe SET fecha = ?,numero_aciertos = ?,numero_fallos = ?,"
 					+ "id_paciente = ?,successspree = ?,failspree = ?,successbonusspree = ?,failbonusspree = ? "
-					+ "initialdificult = ? WHERE idinforme=?");
+					+ "initialdificult = ?,readstate = ? WHERE idinforme=?");
 			st.setDate(1, (Date) s.getDate());
 			st.setInt(2, s.getnSuccess());
 			st.setInt(3, s.getnFailure());
@@ -98,7 +101,8 @@ public class ReportDAO extends DAO{
 			st.setInt(7, s.getSuccessBonusSpree());
 			st.setInt(8, s.getFailBonusSpree());
 			st.setInt(9, s.getInitialDifficult());
-			st.setInt(10, s.getId());
+			st.setInt(10, s.isReadState() ? 1:0);
+			st.setInt(11, s.getId());
 		}catch(SQLException e){
 			e.getStackTrace();
 		}

@@ -1,11 +1,14 @@
 package pfc.game.actions;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import pfc.game.domain.Patient;
 import pfc.game.domain.Psicologo;
 import pfc.game.domain.Report;
 import pfc.game.domain.Try;
+import pfc.game.persistence.Agent;
+import pfc.game.persistence.ReportDAO;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -37,6 +40,18 @@ public class ShowReport extends ActionSupport{
 					report=rep;
 					res=true;
 					tryList=report.getListTries();
+					/*Now I chance the state field on database to indicate that this report
+					has been read*/
+					try {
+						ReportDAO aux=new ReportDAO(new Agent().getMyInstance().getConnection(),report.getIdPatient());
+						aux.update(new Report(report.getId(),report.getDate(),report.getnSuccess()
+								,report.getnFailure(),report.getIdPatient(),report.getSuccessSpree()
+								,report.getFailSpree(),report.getSuccessBonusSpree(),report.getFailBonusSpree()
+								,report.getInitialDifficult(),true,null));
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 		return res;
 	}

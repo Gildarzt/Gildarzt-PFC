@@ -81,12 +81,12 @@ public class Patient {
 					if(getResultList().size()>i){
 						out.write("Mode_"+i+" "+getResultList().get(i).getDescrp()+" ");
 						out.write("Result_"+i+" "+getResultList().get(i).isRes()+" ");
-						out.write("Difficult_"+i+" "+df.format(getResultList().get(i).getDifficult())+"\n");
+						out.write("Difficult_"+i+" "+getResultList().get(i).getDifficult()+"\n");
 					}
 					else{
 						out.write("Mode_"+i+" "+getResultList().get(i).getDescrp()+" ");
 						out.write("Result_"+i+" "+false+" ");
-						out.write("Difficult_"+i+" "+df.format(getResultList().get(i).getDifficult())+"\n");
+						out.write("Difficult_"+i+" "+getResultList().get(i).getDifficult()+"\n");
 					}
 				res=true;
 				out.close();

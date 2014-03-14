@@ -1,7 +1,7 @@
 package pfc.game.domain;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import pfc.game.persistence.PersistentObj;
@@ -18,10 +18,11 @@ public class Report implements Serializable, PersistentObj{
 	private int successBonusSpree;
 	private int failBonusSpree;
 	private int initialDifficult;
+	private boolean readState;
 	private List<Try> listTries;
 	public Report(int id, Date date, int nSuccess, int nFailure, int idPatient,
 			int successSpree, int failSpree, int successBonusSpree,
-			int failBonusSpree, int initialDifficult, List<Try> listTries) {
+			int failBonusSpree, int initialDifficult,boolean readState, List<Try> listTries) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -34,6 +35,7 @@ public class Report implements Serializable, PersistentObj{
 		this.failBonusSpree = failBonusSpree;
 		this.initialDifficult = initialDifficult;
 		this.listTries = listTries;
+		this.readState=readState;
 	}
 	public int getId() {
 		return id;
@@ -100,5 +102,11 @@ public class Report implements Serializable, PersistentObj{
 	}
 	public void setListTries(List<Try> listTries) {
 		this.listTries = listTries;
+	}
+	public boolean isReadState() {
+		return readState;
+	}
+	public void setReadState(boolean readState) {
+		this.readState = readState;
 	}
 }

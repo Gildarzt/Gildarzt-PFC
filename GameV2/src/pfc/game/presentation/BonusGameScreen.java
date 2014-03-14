@@ -176,7 +176,9 @@ public class BonusGameScreen implements Screen{
 		debugC=true;
 		if(!world.isArcMode()){
 			world.getPatient().setcTimes(world.getPatient().getcTimes()+1);
-			world.getClick().setSuccessBonusClick(world.getClick().getSuccessBonusClick()+1);
+			world.getClick().setSucAuxBonusClick(world.getClick().getSucAuxBonusClick()+1);
+			if(world.getClick().getSucAuxBonusClick()>world.getClick().getSuccessBonusClick())
+				world.getClick().setSuccessBonusClick(world.getClick().getSuccessBonusClick()+1);
 			world.getClick().setFailBonusClick(0);;
 			world.getClick().setTotalSuccessClick(world.getClick().getTotalSuccessClick()+1);
 			if(world.getPatient().getcTimes()==5 && world.getPatient().getLifes()<5){
@@ -194,8 +196,10 @@ public class BonusGameScreen implements Screen{
 		world.setbTime(0);
 		if(!world.isArcMode()){
 			world.getPatient().setcTimes(0);
-			world.getClick().setSuccessBonusClick(world.getClick().getSuccessBonusClick()+1);
-			world.getClick().setFailBonusClick(0);
+			world.getClick().setFailAuxBonusClick(world.getClick().getFailAuxBonusClick()+1);
+			if(world.getClick().getFailAuxBonusClick()>world.getClick().getFailBonusClick())
+				world.getClick().setFailBonusClick(world.getClick().getFailAuxBonusClick());
+			world.getClick().setSucAuxBonusClick(0);
 			world.updateBRecords();
 		}
 	}

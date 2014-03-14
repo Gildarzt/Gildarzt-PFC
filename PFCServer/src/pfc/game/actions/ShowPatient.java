@@ -4,15 +4,17 @@ import java.util.List;
 
 import pfc.game.domain.Patient;
 import pfc.game.domain.Psicologo;
+import pfc.game.domain.Report;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+
 
 @SuppressWarnings("serial")
 public class ShowPatient extends ActionSupport{
 	private Patient patient;
 	private int id;
-	private List<Patient> reportList;
+	private List<Report> reportList;
 	public String execute() throws Exception {
 		try {
 			Psicologo ad = (Psicologo) ActionContext.getContext().getSession().get("psicologo");
@@ -21,7 +23,7 @@ public class ShowPatient extends ActionSupport{
 			if(FindPatient(ad))
 				return SUCCESS;
 			else 
-				return "ERROR";
+				return ERROR;
 			
 		} catch (Exception e) {
 			return ERROR;
@@ -33,6 +35,7 @@ public class ShowPatient extends ActionSupport{
 			if(pat.getId()==id){
 				patient=pat;
 				ActionContext.getContext().getSession().put("Patient", patient);
+				reportList=pat.getReportList();
 				res=true;
 			}
 		return res;
@@ -49,10 +52,10 @@ public class ShowPatient extends ActionSupport{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public List<Patient> getReportList() {
+	public List<Report> getReportList() {
 		return reportList;
 	}
-	public void setReportList(List<Patient> reportList) {
+	public void setReportList(List<Report> reportList) {
 		this.reportList = reportList;
 	}
 }

@@ -38,10 +38,11 @@ public class PatientDAO extends DAO{
 		Patient s = (Patient) o;
 		PreparedStatement st =null;
 		try{
-			st= connection.prepareStatement("INSERT INTO paciente VALUES(?,?,?)");
-			st.setInt(1, GetNumberOfIds());
+			st= connection.prepareStatement("INSERT INTO paciente VALUES(?,?,?,?)");
+			st.setInt(1, s.getId());
 			st.setString(2, s.getName());
 			st.setString(3, s.getIdPsi());
+			st.setString(4, s.getSurname());
 		}catch(SQLException e){
 			e.getStackTrace();
 		}
@@ -68,9 +69,9 @@ public class PatientDAO extends DAO{
 	public PreparedStatement selectSql(PersistentObj o){
 		PreparedStatement st =null;
 		try{
-			st= connection.prepareStatement("SELECT * FROM paciente WHERE idpaciente = ? and nombre = ? and codigo_psicologo = ?");
-			st.setInt(1, ((Patient)o).getId());
-			st.setString(2, ((Patient)o).getName());
+			st= connection.prepareStatement("SELECT * FROM paciente WHERE nombre = ? and apellido = ? and codigo_psicologo = ?");
+			st.setString(1, ((Patient)o).getName());
+			st.setString(2, ((Patient)o).getSurname());
 			st.setString(3, ((Patient)o).getIdPsi());
 		}catch(SQLException e){
 			e.getSQLState();

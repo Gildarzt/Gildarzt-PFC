@@ -1,6 +1,7 @@
 package pfc.game.actions;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pfc.game.domain.Patient;
@@ -21,6 +22,7 @@ public class SearchPatient extends ActionSupport{
 			Psicologo ad = (Psicologo) ActionContext.getContext().getSession().get("psicologo");
 			if (ad == null)
 				throw new Exception("No está usted logueado");
+			patientList=new ArrayList<Patient>();
 			FindPatient(ad);
 			if(patientList.size()==1){
 				patient = patientList.get(0);

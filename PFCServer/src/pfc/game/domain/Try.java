@@ -11,9 +11,9 @@ public class Try implements Serializable, PersistentObj{
 	private boolean bonus_ready;/**This one is used to know if the try had the bonus option open*/
 	private boolean bonus_on;/**This one is used to know if we are on bonus time or not*/
 	private int idReport;
-	private int difficult;
+	private double difficult;
 	public Try(int id, boolean result, boolean bonus_ready, boolean bonus_on,
-			int idReport, int difficult) {
+			int idReport, double difficult) {
 		super();
 		this.id = id;
 		this.result = result;
@@ -52,10 +52,10 @@ public class Try implements Serializable, PersistentObj{
 	public void setIdReport(int idReport) {
 		this.idReport = idReport;
 	}
-	public int getDifficult() {
+	public double getDifficult() {
 		return difficult;
 	}
-	public void setDifficult(int difficult) {
+	public void setDifficult(double difficult) {
 		this.difficult = difficult;
 	}
 }

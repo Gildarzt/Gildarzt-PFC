@@ -34,22 +34,26 @@ pageEncoding="ISO-8859-1"%>
 							<tr>
 								<td>
 									<s:form value="report">
-										Id: <s:property value="id" /> <br>
-										Fecha: <s:property value="date" /> <br>
-										Número de aciertos: <s:property value="nSuccess" /> <br>
-										Número de fallos: <s:property value="nFailure" /> <br>
-										Número de aciertos en bonus: <s:property value="nBonus" /> <br>
-										Mayor racha de aciertos: <s:property value="successSpree" /> <br>
-										Mayor racha de fallos: <s:property value="failSpree" /> <br>
+									<s:textfield label="id paciente" name="idPatient" readonly="true"></s:textfield>
+									<s:textfield label="id" name="id" readonly="true"></s:textfield>
+									<s:textfield label="fecha" name="date" readonly="true"></s:textfield>
+									<s:textfield label="Nª aciertos" name="nSuccess" readonly="true"></s:textfield>
+									<s:textfield label="Nª fallos" name="nFailure" readonly="true"></s:textfield>
+									<s:textfield label="Racha de aciertos" name="successSpree" readonly="true"></s:textfield>
+									<s:textfield label="Racha de fallos" name="failSpree" readonly="true"></s:textfield>
+									<s:textfield label="Dificultad Inicial" name="initialDifficult" readonly="true"></s:textfield>	
+									<div id="header">Modo Bonus</div>
+									<s:textfield label="Racha de aciertos" name="successBonusSpree" readonly="true"></s:textfield>
+									<s:textfield label="Racha de fallos" name="failBonusSpree" readonly="true"></s:textfield>
 									</s:form>
 								</td>
 								<td>
 									<s:iterator value="tryList">
 										<s:form>
-											Resultado:<s:property value="result" /> <br>
-											Bonus activado:<s:property value="bonus_ready" /> <br>
-											En modo bonus:<s:property value="bonus_on" /> <br>
-											dificultad:<s:property value="diffcult"/><br>
+										<s:textfield label="Resultado" name="result" readonly="true"></s:textfield>
+										<s:textfield label="¿Bonus disponible?" name="bonus_ready" readonly="true"></s:textfield>
+										<s:textfield label="¿En modo bonus?" name="bonus_on" readonly="true"></s:textfield>
+										<s:textfield label="Dificultad" name="difficult" readonly="true"></s:textfield>	
 										</s:form>
 									</s:iterator>
 								</td>
