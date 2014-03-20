@@ -45,7 +45,7 @@ pageEncoding="ISO-8859-1"%>
 								</td>
 							</tr>
 							<tr>
-								<td>
+								<td valign="top">
 									<s:iterator value="patientList">
 										<s:form action="ShowPatient">
 											<s:textfield label="id" name="id" readonly="true"></s:textfield>
@@ -56,14 +56,14 @@ pageEncoding="ISO-8859-1"%>
 										</s:form>
 									</s:iterator>
 								</td>
-								<td>
+								<td valign="top">
 									<s:form action="SearchPatient">
 										<s:textfield name="name" label="Nombre" value="" />
 										<s:textfield name="surname" label="Apellido" value=""/>
 									<s:submit value="Buscar" align="left"/>
 								</s:form>
 								</td>
-								<td>
+								<td valign="top">
 									<s:iterator value="reportList">
 										<s:form action="ShowReport">
 											<s:textfield label="id paciente" name="idPatient" readonly="true"></s:textfield>
@@ -97,14 +97,14 @@ pageEncoding="ISO-8859-1"%>
 								<td></td>
 							</tr>
 							<tr>
-								<td>
+								<td valign="top">
 									<s:form value="psi">
 										<s:textfield label="Código" name="id" readonly="true"></s:textfield>
 										<s:textfield label="Nombre" name="name" readonly="true"></s:textfield>
 										<s:textfield label="Contraseña" name="password" readonly="true"></s:textfield>
 									</s:form>
 								</td>
-								<td>
+								<td valign="top">
 									<s:form action="ChangePersonalData">
 										<s:textfield name="name" label="Nombre de Usuario" value=""/>
 										<s:textfield name="password" label="Contraseña"  value=""/>									

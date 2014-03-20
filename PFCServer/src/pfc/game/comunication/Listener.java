@@ -1,5 +1,7 @@
 package pfc.game.comunication;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -50,6 +52,18 @@ public class Listener extends HttpServlet{
 		SortLists();
 		Initialice();
 		SaveReport();
+		SendResponse(response);
+	}
+	private void SendResponse(HttpServletResponse response){
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+			out.println("true");
+			out.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	private void SortLists(){
 		Collections.sort(patient);
@@ -93,6 +107,7 @@ public class Listener extends HttpServlet{
 	//Select one list or another to save the token.
 	public void SelectTokenList(String param, String value){
 		int pos;
+		String [] aux;
 		switch(Code.ReturnCode(param)){
 		case 1:
 			//Code
@@ -140,17 +155,25 @@ public class Listener extends HttpServlet{
 			break;
 		case 12:
 			//mode
-			pos=Character.digit(param.charAt(param.length()-1),10);
+			aux=param.split("_");
+			pos=Integer.parseInt(aux[1]);
 			modeTryList.add(new Token(param,value,pos));
 			break;
 		case 13:
 			//result
-			pos=Character.digit(param.charAt(param.length()-1),10);
-			resultTryList.add(new Token(param,value,pos));
+			aux=param.split("_");
+			pos=Integer.parseInt(aux[1]);
+			String cad;
+			if(value.equals("true"))
+				cad="acierto";
+			else
+				cad="fallo";
+			resultTryList.add(new Token(param,cad,pos));
 			break;
 		case 14:
 			//difficult
-			pos=Character.digit(param.charAt(param.length()-1),10);
+			aux=param.split("_");
+			pos=Integer.parseInt(aux[1]);
 			difficultTryList.add(new Token(param,value,pos));
 			break;
 		}

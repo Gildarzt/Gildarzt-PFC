@@ -26,7 +26,7 @@ public class ShowReport extends ActionSupport{
 			if(FindReport(ad))
 				return SUCCESS;
 			else 
-				return "ERROR";
+				return ERROR;
 			
 		} catch (Exception e) {
 			return ERROR;

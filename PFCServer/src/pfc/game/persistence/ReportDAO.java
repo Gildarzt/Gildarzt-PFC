@@ -89,9 +89,11 @@ public class ReportDAO extends DAO{
 		Report s = (Report) o;
 		PreparedStatement st=null;
 		try{
-			st= connection.prepareStatement("UPDATE informe SET fecha = ?,numero_aciertos = ?,numero_fallos = ?,"
-					+ "id_paciente = ?,successspree = ?,failspree = ?,successbonusspree = ?,failbonusspree = ? "
-					+ "initialdificult = ?,readstate = ? WHERE idinforme=?");
+			st= connection.prepareStatement("UPDATE informe SET fecha = ?"
+					+ ",numero_aciertos = ?,numero_fallos = ?,id_paciente = ?"
+					+ ",successspree = ?,failspree = ?,successbonusspree = ?"
+					+ ",failbonusspree = ?,initialdifficult = ?,readstate = ?"
+					+ " WHERE idinforme=?");
 			st.setDate(1, (Date) s.getDate());
 			st.setInt(2, s.getnSuccess());
 			st.setInt(3, s.getnFailure());

@@ -39,11 +39,11 @@ pageEncoding="ISO-8859-1"%>
 								</td>
 							</tr>
 							<tr>
-								<td>
+								<td valign="top">
 									<s:form value="patient">
-										<s:textfield label="Id" name="id" readonly="true"></s:textfield>
-										<s:textfield label="Nombre" name="name" readonly="true"></s:textfield>
-										<s:textfield label="Apellido" name="surname" readonly="true"></s:textfield>
+										<s:textfield label="Id" name="patient.getId()" readonly="true"></s:textfield>
+										<s:textfield label="Nombre" name="patient.getName()" readonly="true"></s:textfield>
+										<s:textfield label="Apellido" name="patient.getSurname()" readonly="true"></s:textfield>
 									</s:form>
 								</td>
 							</tr>
@@ -67,7 +67,7 @@ pageEncoding="ISO-8859-1"%>
 								</td>
 							</tr>
 							<tr>
-								<td>
+								<td valign="top">
 									<s:iterator value="reportList">
 										<s:form action="ShowReport">
 											<s:textfield label="id" name="id" readonly="true"></s:textfield>
@@ -79,7 +79,7 @@ pageEncoding="ISO-8859-1"%>
 										</s:form>
 									</s:iterator>
 								</td>
-								<td>
+								<td valign="top">
 									<s:form action="SearchReport">
 										<s:textfield name="date" label="fecha" value=""/>
 									<s:submit value="Buscar" align="left"/>
@@ -105,10 +105,10 @@ pageEncoding="ISO-8859-1"%>
 							</tr>
 							<tr>
 								<td>
-									<img src="ServletSuccessGraph"/>					
+									<img src=" <s:url action='SuccessGraph' />" />
 								</td>
 								<td>
-									<img src="ServletFailGraph"/>
+									<img src=" <s:url action='FailGraph' />" />
 								</td>
 							</tr>
 						</tbody>

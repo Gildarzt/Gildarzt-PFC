@@ -23,6 +23,7 @@ public class SearchPatient extends ActionSupport{
 			if (ad == null)
 				throw new Exception("No está usted logueado");
 			patientList=new ArrayList<Patient>();
+			reportList=new ArrayList<Report>();
 			FindPatient(ad);
 			if(patientList.size()==1){
 				patient = patientList.get(0);

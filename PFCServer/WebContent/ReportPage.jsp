@@ -32,24 +32,23 @@ pageEncoding="ISO-8859-1"%>
 						</thead>
 						<tbody align="left">
 							<tr>
-								<td>
+								<td valign="top">
 									<s:form value="report">
-									<s:textfield label="id paciente" name="idPatient" readonly="true"></s:textfield>
-									<s:textfield label="id" name="id" readonly="true"></s:textfield>
-									<s:textfield label="fecha" name="date" readonly="true"></s:textfield>
-									<s:textfield label="Nª aciertos" name="nSuccess" readonly="true"></s:textfield>
-									<s:textfield label="Nª fallos" name="nFailure" readonly="true"></s:textfield>
-									<s:textfield label="Racha de aciertos" name="successSpree" readonly="true"></s:textfield>
-									<s:textfield label="Racha de fallos" name="failSpree" readonly="true"></s:textfield>
-									<s:textfield label="Dificultad Inicial" name="initialDifficult" readonly="true"></s:textfield>	
-									<div id="header">Modo Bonus</div>
-									<s:textfield label="Racha de aciertos" name="successBonusSpree" readonly="true"></s:textfield>
-									<s:textfield label="Racha de fallos" name="failBonusSpree" readonly="true"></s:textfield>
+									<s:textfield label="id paciente" name="report.getIdPatient()" readonly="true"></s:textfield>
+									<s:textfield label="fecha" name="report.getDate()" readonly="true"></s:textfield>
+									<s:textfield label="Nª aciertos" name="report.getnSuccess()" readonly="true"></s:textfield>
+									<s:textfield label="Nª fallos" name="report.getnFailure()" readonly="true"></s:textfield>
+									<s:textfield label="Racha de aciertos" name="report.getSuccessSpree()" readonly="true"></s:textfield>
+									<s:textfield label="Racha de fallos" name="report.getFailSpree()" readonly="true"></s:textfield>
+									<s:textfield label="Dificultad Inicial" name="report.getInitialDifficult()" readonly="true"></s:textfield>	
+									<s:textfield label="Racha de aciertos en bonus" name="report.getSuccessBonusSpree()" readonly="true"></s:textfield>
+									<s:textfield label="Racha de fallos en bonus" name="report.getFailBonusSpree()" readonly="true"></s:textfield>
 									</s:form>
 								</td>
-								<td>
+								<td valign="top">
 									<s:iterator value="tryList">
 										<s:form>
+										<s:div>Intento</s:div>
 										<s:textfield label="Resultado" name="result" readonly="true"></s:textfield>
 										<s:textfield label="¿Bonus disponible?" name="bonus_ready" readonly="true"></s:textfield>
 										<s:textfield label="¿En modo bonus?" name="bonus_on" readonly="true"></s:textfield>
