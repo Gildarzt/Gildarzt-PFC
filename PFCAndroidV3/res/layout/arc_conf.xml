@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/greenbg" >
+
+    <ImageView
+        android:id="@+id/speedImage"
+        android:layout_width="75dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="51dp"
+        android:contentDescription="@string/arconf_speed_text"
+        android:scaleType="fitXY"
+        android:src="@drawable/speedm" />
+
+    <ImageView
+        android:id="@+id/tryImage"
+        android:layout_width="85dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/speedImage"
+        android:layout_below="@+id/speedImage"
+        android:layout_marginTop="76dp"
+        android:contentDescription="@string/arconf_try_text"
+        android:scaleType="fitXY"
+        android:src="@drawable/triesm" />
+
+    <CheckBox
+        android:id="@+id/speedCB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/speedImage"
+        android:layout_below="@+id/speedImage"
+        android:layout_marginTop="19dp"
+        android:text="@string/inc_speed_cb"
+        android:textColor="#FFFFFF"
+         />
+
+    <CheckBox
+        android:id="@+id/bonusCB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tryImage"
+        android:layout_below="@+id/tryImage"
+        android:layout_marginTop="26dp"
+        android:text="@string/inc_bonus_cb"
+        android:textColor="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/tryET"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tryImage"
+        android:layout_alignLeft="@+id/speedET"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <CheckBox
+        android:id="@+id/soundCB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/aceptButton"
+        android:layout_alignLeft="@+id/bonusCB"
+        android:layout_marginBottom="24dp"
+        android:text="@string/inc_sound_cb"
+        android:textColor="#FFFFFF" />
+
+    <ImageButton
+        android:id="@+id/aceptButton"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/speedCB"
+        android:layout_marginBottom="47dp"
+        android:contentDescription="@string/conf_accept_button"
+        android:scaleType="fitXY"
+        android:src="@drawable/aceptm" />
+
+    <EditText
+        android:id="@+id/speedET"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/speedCB"
+        android:layout_toRightOf="@+id/soundCB"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="number" />
+
+</RelativeLayout>

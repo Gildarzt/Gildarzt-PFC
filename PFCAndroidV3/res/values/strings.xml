@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dragon Training</string>
+    <string name="arcade_button">Go to arcade mode</string>
+    <string name="history_button">Go to history mode</string>
+    <string name="arconf_button">Go to arcade configuartion</string>
+    <string name="arcplay_button">Go to play arcade game</string>
+    <string name="arc_speed">Velocidad:</string>
+    <string name="speed_value">2</string>
+    <string name="inc_speed">¿Incremental?:</string>
+    <string name="inc_speed_value">No</string>
+    <string name="try_text">Nº de intentos:</string>
+    <string name="try_value">5</string>
+    <string name="bonus_text">¿Bonus?:</string>
+    <string name="bonus_value">No</string>
+    <string name="sound_text">¿Sonido?:</string>
+    <string name="sound_value">No</string>
+    <string name="arconf_speed_text">Speed text</string>
+    <string name="arconf_try_text">Try text</string>
+    <string name="inc_speed_cb">¿Se incrementa?</string>
+    <string name="inc_bonus_cb">¿Bonus?</string>
+    <string name="inc_sound_cb">¿Sonido?</string>
+    <string name="conf_accept_button">Accept configurations</string>
+    <string name="login_user_name">User name</string>
+    <string name="login_password">User password</string>
+    <string name="login_button">Go to history main menu</string>
+    <string name="register_button">Go to register page</string>
+    <string name="reg_surname">Register surname</string>
+    <string name="reg_name">Register name</string>
+    <string name="reg_nick">Register nick</string>
+    <string name="reg_password">Register password</string>
+    <string name="profile_button">Go to profile page</string>
+    <string name="play_button">Go to play page</string>
+    <string name="reward_image_view">Reward</string>
+    <string name="prof_default_name">Nombre</string>
+    <string name="prof_default_surname">Apellido</string>
+    <string name="prof_default_nick">Nick</string>
+    <string name="prof_default_pass">Contraseña</string>
+    <string name="descp">Pulsa la pantalla cuando las esferas se junten.Completa una racha de tres o mas aciertos para activar el modo bonus.Con 5 o mas aciertos en el modo bonus conseguirás una vida.¡¡Buena suerte!!</string>
+	<string name="main_button"></string>
+</resources>

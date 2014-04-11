@@ -1,0 +1,124 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bluebg" >
+
+    <TextView
+        android:id="@+id/incSpeedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/speedText"
+        android:layout_below="@+id/speedText"
+        android:text="@string/inc_speed" 
+        android:textColor="#FFFFFF"/>
+
+    <TextView
+        android:id="@+id/speedValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/incSpeedText"
+        android:layout_marginLeft="46dp"
+        android:layout_toRightOf="@+id/incSpeedText"
+        android:text="@string/speed_value"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/incSpeedValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/incSpeedText"
+        android:layout_alignBottom="@+id/incSpeedText"
+        android:layout_alignLeft="@+id/speedValue"
+        android:text="@string/inc_speed_value"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/incSpeedText"
+        android:layout_below="@+id/incSpeedText"
+        android:layout_marginTop="16dp"
+        android:text="@string/try_text"
+        android:textColor="#FFFFFF"  />
+
+    <TextView
+        android:id="@+id/tryValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tryText"
+        android:layout_alignLeft="@+id/incSpeedValue"
+        android:text="@string/try_value"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/bonusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tryText"
+        android:layout_below="@+id/tryText"
+        android:layout_marginTop="16dp"
+        android:text="@string/bonus_text"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/bonusValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bonusText"
+        android:layout_alignBottom="@+id/bonusText"
+        android:layout_alignLeft="@+id/tryValue"
+        android:text="@string/bonus_value"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/soundText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bonusText"
+        android:layout_below="@+id/bonusText"
+        android:text="@string/sound_text"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/soundValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bonusValue"
+        android:layout_below="@+id/bonusValue"
+        android:text="@string/sound_value" 
+        android:textColor="#FFFFFF" />
+
+    <ImageButton
+        android:id="@+id/confButton"
+        android:layout_width="250dp"
+        android:layout_height="125dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="14dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/arconfm"
+        android:contentDescription="@string/arconf_button" />
+
+    <TextView
+        android:id="@+id/speedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="31dp"
+        android:text="@string/arc_speed"
+        android:textColor="#FFFFFF" />
+
+    <ImageButton
+        android:id="@+id/playButton"
+        android:layout_width="75dp"
+        android:layout_height="35dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/playm"
+        android:contentDescription="@string/arcplay_button" 
+        android:scaleType="fitXY"/>
+
+</RelativeLayout>
