@@ -3,6 +3,18 @@ images1.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+gameBonusBackground
+  rotate: false
+  xy: 2, 2
+  size: 854, 854
+  orig: 854, 854
+  offset: 0, 0
+  index: -1
+
+images2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
 uncMsg
   rotate: false
   xy: 2, 2
@@ -18,7 +30,7 @@ backgroundButton
   offset: 0, 0
   index: -1
 
-images2.png
+images3.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -30,7 +42,7 @@ title
   offset: 0, 0
   index: -1
 
-images3.png
+images4.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -42,7 +54,7 @@ start
   offset: 0, 0
   index: -1
 
-images4.png
+images5.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -54,7 +66,7 @@ rec2
   offset: 0, 0
   index: -1
 
-images5.png
+images6.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -66,7 +78,7 @@ rec1
   offset: 0, 0
   index: -1
 
-images6.png
+images7.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -78,7 +90,7 @@ mediumOn
   offset: 0, 0
   index: -1
 
-images7.png
+images8.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -90,7 +102,7 @@ mediumOff
   offset: 0, 0
   index: -1
 
-images8.png
+images9.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -102,7 +114,7 @@ mainBackground
   offset: 0, 0
   index: -1
 
-images9.png
+images10.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -114,7 +126,7 @@ lifes
   offset: 0, 0
   index: -1
 
-images10.png
+images11.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -126,7 +138,7 @@ hardOn
   offset: 0, 0
   index: -1
 
-images11.png
+images12.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -138,7 +150,7 @@ hardOff
   offset: 0, 0
   index: -1
 
-images12.png
+images13.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -150,7 +162,7 @@ easyOn
   offset: 0, 0
   index: -1
 
-images13.png
+images14.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -162,7 +174,7 @@ easyOff
   offset: 0, 0
   index: -1
 
-images14.png
+images15.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -174,7 +186,7 @@ corMsg
   offset: 0, 0
   index: -1
 
-images15.png
+images16.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -186,7 +198,7 @@ bonus
   offset: 0, 0
   index: -1
 
-images16.png
+images17.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none

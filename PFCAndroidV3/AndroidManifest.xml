@@ -43,6 +43,8 @@
             	  android:screenOrientation="portrait"></activity>
         <activity android:name="pfc.game.presentation.ArcadeMode"
             	  android:screenOrientation="portrait"></activity>
+        <activity android:name="pfc.game.presentation.ArcResult"
+            	  android:screenOrientation="portrait"></activity>
         
     </application>
 

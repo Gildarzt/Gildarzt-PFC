@@ -1,8 +1,6 @@
 package pfc.game.presentation;
 
 import java.io.File;
-import java.io.FilenameFilter;
-
 import pfc.game.domain.Arcade;
 import pfc.game.presentation.R;
 import android.app.Activity;
@@ -114,16 +112,10 @@ public class ArcadeMode  extends Activity{
 	private boolean checkResultTest(){
 		boolean res=false;
 		File root=Environment.getExternalStorageDirectory();
-		if(root.canWrite()){
-			File dir=new File(root+"/pfc");
-			String[] dirList=dir.list(new FilenameFilter(){
-				@Override
-				public boolean accept(File dir, String fileName) {
-					// TODO Auto-generated method stub
-					return fileName.contains("arcade");
-				}
-			});
-			if(dirList!=null)
+		if(root.canRead()){
+			File dir = new File(root + "/pfc");
+			File file=new File(dir,"arcade.txt");
+			if(dir.exists() && file.exists())
 				res=true;
 		}
 		return res;
