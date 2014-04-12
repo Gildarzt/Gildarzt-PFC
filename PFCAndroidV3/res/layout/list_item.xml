@@ -15,16 +15,18 @@
         android:paddingBottom="5dp"
         android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
         android:background="@android:color/transparent"
-		android:cacheColorHint="@android:color/transparent" />
+		android:cacheColorHint="@android:color/transparent" 
+		android:textColor="#FFFFFF"/>
     <TextView 
         android:id="@+id/lblListItemDescp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="10dip"
+        android:textSize="12sp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft" 
         android:background="@android:color/transparent"
-		android:cacheColorHint="@android:color/transparent"/>
+		android:cacheColorHint="@android:color/transparent"
+		android:textColor="#FFFFFF"/>
  
 </LinearLayout>

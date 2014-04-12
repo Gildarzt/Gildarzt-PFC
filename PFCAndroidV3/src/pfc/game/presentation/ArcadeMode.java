@@ -1,10 +1,14 @@
 package pfc.game.presentation;
 
+import java.io.File;
+import java.io.FilenameFilter;
+
 import pfc.game.domain.Arcade;
 import pfc.game.presentation.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -90,6 +94,12 @@ public class ArcadeMode  extends Activity{
 					startActivityForResult(intent,1);
 			}    	
 	    });
+		
+		if(checkResultTest()){
+			Intent auxInt=new Intent(ArcadeMode.this,ArcResult.class);
+			startActivityForResult(auxInt,1);
+		}
+			
 	}
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -100,6 +110,23 @@ public class ArcadeMode  extends Activity{
 	    }
 	    return super.onKeyDown(keyCode, event);
 	}
-
+	/**12/04/14: this method check if there is a txt file in the directory and show the result*/
+	private boolean checkResultTest(){
+		boolean res=false;
+		File root=Environment.getExternalStorageDirectory();
+		if(root.canWrite()){
+			File dir=new File(root+"/pfc");
+			String[] dirList=dir.list(new FilenameFilter(){
+				@Override
+				public boolean accept(File dir, String fileName) {
+					// TODO Auto-generated method stub
+					return fileName.contains("arcade");
+				}
+			});
+			if(dirList!=null)
+				res=true;
+		}
+		return res;
+	}
 
 }

@@ -1,0 +1,118 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/greenbg" >
+
+    <TextView
+        android:id="@+id/nRights"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/n_rights"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nFails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nRights"
+        android:layout_below="@+id/nRights"
+        android:layout_marginTop="18dp"
+        android:text="@string/n_fails"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nSpreeRights"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nFails"
+        android:layout_below="@+id/nFails"
+        android:layout_marginTop="17dp"
+        android:text="@string/n_spree_rights"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/initialDifficult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nSpreeRights"
+        android:layout_below="@+id/nSpreeRights"
+        android:layout_marginTop="58dp"
+        android:text="@string/initial_difficult"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/initialDifficult"
+        android:layout_below="@+id/nSpreeRights"
+        android:layout_marginTop="21dp"
+        android:text="@string/n_spree_fails"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nRightsValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/nRights"
+        android:layout_alignBottom="@+id/nRights"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="17dp"
+        android:text="@string/n_rights"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nFailsValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/nFails"
+        android:layout_alignBottom="@+id/nFails"
+        android:layout_alignLeft="@+id/nRightsValue"
+        android:text="@string/n_rights"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nSpreeRightsValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/nSpreeRights"
+        android:layout_alignBottom="@+id/nSpreeRights"
+        android:layout_alignLeft="@+id/nFailsValue"
+        android:text="@string/n_rights"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nSpreeFailsValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView01"
+        android:layout_alignBottom="@+id/TextView01"
+        android:layout_alignLeft="@+id/nSpreeRightsValue"
+        android:text="@string/n_rights"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/initialDifficultValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/initialDifficult"
+        android:layout_alignBottom="@+id/initialDifficult"
+        android:layout_alignLeft="@+id/nSpreeFailsValue"
+        android:text="@string/n_rights"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+</RelativeLayout>

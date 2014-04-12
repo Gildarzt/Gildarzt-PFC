@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 
 public class LoginPage extends Activity{
@@ -54,6 +55,7 @@ public class LoginPage extends Activity{
 				}
 				else{
 					//jugador no registrado.
+					Toast.makeText(context, "Error al introducir los datos. Jugador no registrado", Toast.LENGTH_LONG).show();
 				}
 			}    	
 	    });

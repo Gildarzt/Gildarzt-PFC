@@ -38,4 +38,9 @@
     <string name="prof_default_pass">Contraseña</string>
     <string name="descp">Pulsa la pantalla cuando las esferas se junten.Completa una racha de tres o mas aciertos para activar el modo bonus.Con 5 o mas aciertos en el modo bonus conseguirás una vida.¡¡Buena suerte!!</string>
 	<string name="main_button"></string>
+	<string name="n_rights">Nº aciertos:</string>
+	<string name="n_fails">Nº fallos:</string>
+	<string name="n_spree_rights">Mayor racha de aciertos:</string>
+	<string name="n_spree_fails">Mayor racha de fallos:</string>
+	<string name="initial_difficult">Dificultad inicial:</string>
 </resources>

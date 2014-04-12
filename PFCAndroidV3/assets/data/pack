@@ -1,0 +1,199 @@
+
+images1.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+uncMsg
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+backgroundButton
+  rotate: false
+  xy: 2, 544
+  size: 640, 400
+  orig: 640, 400
+  offset: 0, 0
+  index: -1
+
+images2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+title
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images3.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+start
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images4.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+rec2
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images5.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+rec1
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images6.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+mediumOn
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images7.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+mediumOff
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images8.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+mainBackground
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images9.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+lifes
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images10.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+hardOn
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images11.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+hardOff
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images12.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+easyOn
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images13.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+easyOff
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images14.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+corMsg
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images15.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+bonus
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images16.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+gameBackground
+  rotate: false
+  xy: 2, 2
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: -1
