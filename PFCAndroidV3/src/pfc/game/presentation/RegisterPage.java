@@ -9,8 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class RegisterPage extends Activity{
 	
@@ -23,7 +23,7 @@ public class RegisterPage extends Activity{
 		setContentView(R.layout.register);
 		context=this;
 		agent=new Agent();
-		Button btnRegister=(Button)findViewById(R.id.regButton);
+		ImageButton btnRegister=(ImageButton)findViewById(R.id.regButton);
 		btnRegister.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0){

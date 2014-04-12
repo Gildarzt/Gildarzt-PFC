@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 public class SelectMode extends Activity{
 
@@ -20,7 +20,7 @@ public class SelectMode extends Activity{
 	@Override
 	public void onResume(){
 		super.onResume();
-		Button btnArc=(Button)findViewById(R.id.ArcadeButton);
+		ImageButton btnArc=(ImageButton)findViewById(R.id.ArcadeButton);
 		btnArc.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0){
@@ -30,7 +30,7 @@ public class SelectMode extends Activity{
 			}    	
 	    });
 		
-		Button btnHistory=(Button)findViewById(R.id.HistoryButton);
+		ImageButton btnHistory=(ImageButton)findViewById(R.id.HistoryButton);
 		btnHistory.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0){

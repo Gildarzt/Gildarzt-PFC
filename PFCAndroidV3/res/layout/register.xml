@@ -110,8 +110,9 @@
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_alignLeft="@+id/regSurnameET"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="18dp"
+        android:layout_below="@+id/regPasswordET"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="36dp"
         android:contentDescription="@string/reg_nick"
         android:scaleType="fitXY"
         android:src="@drawable/psicode" />
@@ -123,7 +124,7 @@
         android:layout_alignLeft="@+id/psiCodeET"
         android:layout_below="@+id/psiCodeET"
         android:layout_marginLeft="14dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="21dp"
         android:contentDescription="@string/reg_password"
         android:scaleType="fitXY"
         android:src="@drawable/registerm" />

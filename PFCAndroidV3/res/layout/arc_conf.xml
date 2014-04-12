@@ -5,7 +5,7 @@
 
     <ImageView
         android:id="@+id/speedImage"
-        android:layout_width="75dp"
+        android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -17,7 +17,7 @@
 
     <ImageView
         android:id="@+id/tryImage"
-        android:layout_width="85dp"
+        android:layout_width="120dp"
         android:layout_height="40dp"
         android:layout_alignLeft="@+id/speedImage"
         android:layout_below="@+id/speedImage"
@@ -47,19 +47,6 @@
         android:text="@string/inc_bonus_cb"
         android:textColor="#FFFFFF" />
 
-    <EditText
-        android:id="@+id/tryET"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tryImage"
-        android:layout_alignLeft="@+id/speedET"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:inputType="number" >
-
-        <requestFocus />
-    </EditText>
-
     <CheckBox
         android:id="@+id/soundCB"
         android:layout_width="wrap_content"
@@ -82,11 +69,26 @@
         android:src="@drawable/aceptm" />
 
     <EditText
+        android:id="@+id/tryET"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bonusCB"
+        android:layout_alignTop="@+id/tryImage"
+        android:layout_toRightOf="@+id/speedCB"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
         android:id="@+id/speedET"
-        android:layout_width="20dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/speedCB"
-        android:layout_toRightOf="@+id/soundCB"
+        android:layout_alignTop="@+id/speedImage"
+        android:layout_toRightOf="@+id/speedCB"
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="number" />

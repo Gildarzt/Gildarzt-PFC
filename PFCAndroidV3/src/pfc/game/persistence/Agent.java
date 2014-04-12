@@ -250,7 +250,6 @@ public class Agent extends AndroidApplication{
 		boolean res=false;
 		dbPlayerHelper=new DBPlayer(context);
 		db = dbPlayerHelper.getWritableDatabase();
-		Toast.makeText(context, "Base de datos de jugadores preparada", Toast.LENGTH_LONG).show();
 		
 		StringBuilder sb=new StringBuilder();
 		sb.append("INSERT INTO Player (id,name,surname,nick,password,psiCode) VALUES ("
@@ -275,8 +274,6 @@ public class Agent extends AndroidApplication{
 		boolean res=false;
 		dbRecordHelper=new DBRecord(context);
 		db = dbRecordHelper.getWritableDatabase();
-		Toast.makeText(context, "Base de datos de records preparada", Toast.LENGTH_LONG).show();
-		
 		StringBuilder sb=new StringBuilder();
 		sb.append("INSERT INTO Record (id,name,value) VALUES ("
 				+ rec.getId()
@@ -297,8 +294,6 @@ public class Agent extends AndroidApplication{
 		boolean res=false;
 		dbPGolHelper=new DBPlayerGoal(context);
 		db=dbPGolHelper.getWritableDatabase();
-		Toast.makeText(context, "Base de datos de Jugador-Logro preparada", Toast.LENGTH_LONG).show();
-		
 		StringBuilder sb=new StringBuilder();
 		sb.append("INSERT INTO PlayerGoal(idPlayer,idGoal) VALUES ("
 				+ idPlayer+","+idGoal+");");

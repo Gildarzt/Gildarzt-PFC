@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class ArcadeMode  extends Activity{
@@ -26,27 +26,27 @@ public class ArcadeMode  extends Activity{
 		TextView bonusTV=(TextView)findViewById(R.id.bonusValue);
 		TextView soundTV=(TextView)findViewById(R.id.soundValue);
 		
-		speed=getIntent().getParcelableExtra("speed");
+		speed=getIntent().getIntExtra("speed", 0);
 		if(speed!=0){
-			tries=getIntent().getParcelableExtra("tries");
-			String incSpeedAux=getIntent().getParcelableExtra("incSpeed").toString();
+			tries=getIntent().getIntExtra("tries", 3);
+			String incSpeedAux=getIntent().getStringExtra("incSpeed").toString();
 			if(incSpeedAux.equals("No"))
 				incSpeed=false;
 			else 
 				incSpeed=true;
-			String bonusAux=getIntent().getParcelableExtra("bonus").toString();
+			String bonusAux=getIntent().getStringExtra("bonus").toString();
 			if(bonusAux.equals("No"))
 				bonus=false;
 			else 
 				bonus=true;
-			String soundAux=getIntent().getParcelableExtra("sound").toString();
+			String soundAux=getIntent().getStringExtra("sound").toString();
 			if(soundAux.equals("No"))
 				sound=false;
 			else 
 				sound=true;
-			speedTV.setText(speed);
+			speedTV.setText(Integer.toString(speed));
 			sIncTV.setText(incSpeedAux);
-			triesTV.setText(tries);
+			triesTV.setText(Integer.toString(tries));
 			bonusTV.setText(bonusAux);
 			soundTV.setText(soundAux);
 			
@@ -71,8 +71,8 @@ public class ArcadeMode  extends Activity{
 	@Override
 	public void onResume(){
 		super.onResume();
-		Button btnArc=(Button)findViewById(R.id.playButton);
-		btnArc.setOnClickListener(new OnClickListener(){
+		ImageButton btnPlay=(ImageButton)findViewById(R.id.playButton);
+		btnPlay.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0){
 				Arcade arcade=new Arcade(speed,tries,incSpeed,bonus,sound);
@@ -82,8 +82,8 @@ public class ArcadeMode  extends Activity{
 			}    	
 	    });
 		
-		Button btnHistory=(Button)findViewById(R.id.confButton);
-		btnHistory.setOnClickListener(new OnClickListener(){
+		ImageButton btnConf=(ImageButton)findViewById(R.id.confButton);
+		btnConf.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0){
 					Intent intent=new Intent(ArcadeMode.this,ArcadeConf.class);

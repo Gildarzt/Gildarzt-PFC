@@ -15,7 +15,7 @@ public class MainActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		Button btnHola=(Button)findViewById(R.id.profileButton);
+		Button btnHola=(Button)findViewById(R.id.mainButton);
 		btnHola.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0){

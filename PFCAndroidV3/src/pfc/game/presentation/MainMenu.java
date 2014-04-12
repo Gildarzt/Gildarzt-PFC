@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainMenu extends Activity{
 	private Player pla;
@@ -34,18 +34,18 @@ public class MainMenu extends Activity{
 	@Override
 	public void onResume(){
 		super.onResume();
-		Button btnReg=(Button)findViewById(R.id.playButton);
+		ImageButton btnReg=(ImageButton)findViewById(R.id.playButton);
 		btnReg.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0){
-				Intent intent=new Intent(MainMenu.this,GameInfoPage.class);
+				Intent intent=new Intent(MainMenu.this,GamePage.class);
 				intent.putExtra("Player", pla);
 				intent.putExtra("arcade", false);
 				startActivity(intent);	
 			}    	
 	    });
 		
-		Button btnLogin=(Button)findViewById(R.id.profileButton);
+		ImageButton btnLogin=(ImageButton)findViewById(R.id.profileButton);
 		btnLogin.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0){

@@ -9,8 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 
 public class LoginPage extends Activity{
@@ -28,7 +28,7 @@ public class LoginPage extends Activity{
 		agent=new Agent();
 		context=this;
 		
-		Button btnReg=(Button)findViewById(R.id.regButton);
+		ImageButton btnReg=(ImageButton)findViewById(R.id.regButton);
 		btnReg.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0){
@@ -37,7 +37,7 @@ public class LoginPage extends Activity{
 			}    	
 	    });
 		
-		Button btnLogin=(Button)findViewById(R.id.loginButton);
+		ImageButton btnLogin=(ImageButton)findViewById(R.id.loginButton);
 		btnLogin.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0){

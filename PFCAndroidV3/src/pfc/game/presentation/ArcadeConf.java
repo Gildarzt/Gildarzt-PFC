@@ -6,9 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class ArcadeConf extends Activity{
 
@@ -28,9 +28,8 @@ public class ArcadeConf extends Activity{
 	protected void onResume(){
 		super.onResume();
 		
-		Button btnArcPlay=(Button)findViewById(R.id.aceptButton);
-		
-		btnArcPlay.setOnClickListener(new OnClickListener(){
+		ImageButton btnArcAccept=(ImageButton)findViewById(R.id.aceptButton);
+		btnArcAccept.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0){
 				etSpeed=(EditText)findViewById(R.id.speedET);
@@ -45,7 +44,7 @@ public class ArcadeConf extends Activity{
 					intent.putExtra("speed", speed);
 				else
 					intent.putExtra("speed", 1);
-				intent.putExtra("tries", etTries.getText().toString());
+				intent.putExtra("tries", Integer.parseInt(etTries.getText().toString()));
 				if(cbSpeed.isChecked())
 					intent.putExtra("incSpeed","Si");
 				else
