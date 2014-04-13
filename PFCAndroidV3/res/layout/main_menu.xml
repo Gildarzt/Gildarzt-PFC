@@ -28,12 +28,56 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_below="@+id/playButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp"
-        android:src="@drawable/ic_launcher"
-        android:contentDescription="@string/reward_image_view" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignRight="@+id/playButton"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/reward_image_view"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/ImageView01"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/imageView1"
+        android:layout_toRightOf="@+id/imageView1"
+        android:contentDescription="@string/reward_image_view"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/ImageView02"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/ImageView01"
+        android:contentDescription="@string/reward_image_view"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/ImageView03"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_below="@+id/imageView1"
+        android:contentDescription="@string/reward_image_view"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/ImageView04"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/ImageView01"
+        android:layout_alignTop="@+id/ImageView03"
+        android:contentDescription="@string/reward_image_view"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/ImageView05"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ImageView01"
+        android:contentDescription="@string/reward_image_view"
+        android:src="@drawable/ic_launcher" />
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package pfc.game.presentation;
 
+import pfc.game.domain.Goal;
 import pfc.game.domain.Player;
 import pfc.game.presentation.R;
 import pfc.game.persistence.Agent;
@@ -12,12 +13,14 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 public class MainMenu extends Activity{
 	private Player pla;
 	private Agent agent;
 	private Context context;
 	private Activity activity;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -56,6 +59,19 @@ public class MainMenu extends Activity{
 					//SendResults();
 			}    	
 	    });
+		ImageView reward1=(ImageView)findViewById(R.id.imageView1);
+		reward1.setImageResource(ShowReward(1));
+		ImageView reward2=(ImageView)findViewById(R.id.ImageView01);
+		reward2.setImageResource(ShowReward(2));
+		ImageView reward3=(ImageView)findViewById(R.id.ImageView02);
+		reward3.setImageResource(ShowReward(3));
+		ImageView reward4=(ImageView)findViewById(R.id.ImageView03);
+		reward4.setImageResource(ShowReward(9));
+		ImageView reward5=(ImageView)findViewById(R.id.ImageView04);
+		reward5.setImageResource(ShowReward(12));
+		ImageView reward6=(ImageView)findViewById(R.id.ImageView05);
+		reward6.setImageResource(ShowReward(13));
+		
 	}
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -83,5 +99,36 @@ public class MainMenu extends Activity{
 	}
 	private void SendResults(){
 		pla.sendReport(activity);
+	}
+	/**This method upload the reward image.*/
+	private int ShowReward(int idRew){
+		int res=0;
+		for(int i=0;i<pla.getGoalList().size();i++){
+			Goal goal=pla.getGoalList().get(i);
+			if(goal.getIdRew()==idRew){
+				switch(goal.getIdRew()){
+				case 13:
+					res=R.drawable.r13;
+					break;
+				case 12:
+					res=R.drawable.r12;
+					break;
+				case 9:
+					res=R.drawable.r9;
+					break;
+				case 3:
+					res=R.drawable.r3;
+					break;
+				case 2:
+					res=R.drawable.r2;
+					break;
+				case 1:
+					res=R.drawable.r1;
+				}
+				
+			}
+		}
+		return res;
+		
 	}
 }

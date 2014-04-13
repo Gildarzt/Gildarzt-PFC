@@ -120,5 +120,4 @@ public class ArcadeMode  extends Activity{
 		}
 		return res;
 	}
-
 }

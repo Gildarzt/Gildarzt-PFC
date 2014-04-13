@@ -100,7 +100,8 @@ public class ArcResult extends Activity{
 			String[]aux=tokens[i].split(" ");
 			switch (i){
 			case 1:
-				iDifficult=aux[1];
+				char auxChar=aux[1].charAt(0);
+				iDifficult=Character.toString(auxChar);
 				break;
 			case 2:
 				rValue=aux[1];
