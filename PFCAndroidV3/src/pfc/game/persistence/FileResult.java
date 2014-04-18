@@ -92,11 +92,7 @@ public class FileResult {
 			});
 			if(dirList!=null)
 				for(String fileName:dirList){
-					if(SendReport(fileName)){
-						System.out.println("Se ha enviado correctamente");
-					}
-					else
-						System.out.println("Ha ocurrido un error");
+					SendReport(fileName);
 				}
 		}
 	}
@@ -104,7 +100,7 @@ public class FileResult {
 	 * This method have to be called for each report.
 	 * @return res
 	 */
-	private boolean SendReport(String fileName){
+	private void SendReport(String fileName){
 		recoveryPool=parseFile(fileName);
 		deleteFileName=fileName;
 		String delim="\n";
@@ -123,16 +119,16 @@ public class FileResult {
 		httpclient.setOnExecuteHttpPostAsyncListener(new OnExecuteHttpPostAsyncListener(){
 			@Override
 			public void onExecuteHttpPostAsyncListener(String ResponseBody) {
-				if(ResponseBody.equals("true"));
+				if(ResponseBody.contains("true")){
+					deleteFile();
+				}
 			}
-			
 			@Override
 		    public void onErrorHttpPostAsyncListener(String message) {
 				listenerAsyncPost.onErrorAsyncPost("Se ha producido un error " + message);
 		    }
 		});      
 		httpclient.executeHttpPost("http://pfcserver-gildarzt.rhcloud.com/Listener");
-		return deleteFile();
 	}
 	private boolean deleteFile(){
 		File root = Environment.getExternalStorageDirectory();

@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/greenbg" >
+
+    <ImageView
+        android:id="@+id/ImageView04"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignLeft="@+id/ImageView01"
+        android:layout_alignTop="@+id/ImageView03"
+        android:contentDescription="@string/reward_image_view"
+        android:src="@drawable/defaultreward" 
+        android:scaleType="fitXY"/>
+
+    <ImageView
+        android:id="@+id/ImageView01"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_above="@+id/ImageView04"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/reward_image_view"
+        android:src="@drawable/defaultreward"
+        android:scaleType="fitXY" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/ImageView04"
+        android:contentDescription="@string/reward_image_view"
+        android:src="@drawable/defaultreward"
+        android:scaleType="fitXY" />
+
+    <ImageView
+        android:id="@+id/ImageView02"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_above="@+id/ImageView04"
+        android:layout_toRightOf="@+id/ImageView04"
+        android:contentDescription="@string/reward_image_view"
+        android:src="@drawable/defaultreward"
+        android:scaleType="fitXY" />
+
+    <ImageView
+        android:id="@+id/ImageView05"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignTop="@+id/ImageView04"
+        android:layout_toRightOf="@+id/ImageView04"
+        android:contentDescription="@string/reward_image_view"
+        android:src="@drawable/defaultreward" 
+        android:scaleType="fitXY"/>
+
+    <ImageView
+        android:id="@+id/ImageView03"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/imageView1"
+        android:layout_toLeftOf="@+id/ImageView04"
+        android:contentDescription="@string/reward_image_view"
+        android:scaleType="fitXY"
+        android:src="@drawable/defaultreward" />
+
+    <ImageButton
+        android:id="@+id/profileButton"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:layout_alignRight="@+id/ImageView02"
+        android:layout_alignTop="@+id/playButton"
+        android:background="@drawable/profilem"
+        android:contentDescription="@string/profile_button"
+        android:scaleType="fitXY" />
+
+    <ImageButton
+        android:id="@+id/playButton"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="165dp"
+        android:background="@drawable/playm"
+        android:contentDescription="@string/play_button"
+        android:scaleType="fitXY" />
+
+</RelativeLayout>

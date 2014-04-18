@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="@drawable/redbg">
+
+    <ImageButton
+        android:id="@+id/ArcadeButton"
+        android:layout_width="500dp"
+        android:layout_height="250dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="182dp"
+        android:background="@drawable/arcadem"
+        android:contentDescription="@string/arcade_button" />
+
+    <ImageButton
+        android:id="@+id/HistoryButton"
+        android:layout_width="500dp"
+        android:layout_height="250dp"
+        android:layout_below="@+id/ArcadeButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="165dp"
+        android:background="@drawable/historym"
+        android:contentDescription="@string/history_button" />
+
+</RelativeLayout>

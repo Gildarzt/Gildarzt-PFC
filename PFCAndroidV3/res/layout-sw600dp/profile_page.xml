@@ -13,7 +13,8 @@
         android:layout_marginTop="30dp"
         android:text="@string/prof_default_name"
         android:textColor="#FFFFFF" 
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textSize="30sp"/>
 
     <TextView
         android:id="@+id/profileNick"
@@ -24,7 +25,8 @@
         android:layout_marginTop="14dp"
         android:text="@string/prof_default_nick" 
         android:textColor="#FFFFFF" 
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textSize="30sp"/>
 
     <TextView
         android:id="@+id/profilePassword"
@@ -35,7 +37,8 @@
         android:layout_alignLeft="@+id/profileSurname"
         android:text="@string/prof_default_pass" 
         android:textColor="#FFFFFF" 
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textSize="30sp"/>
 
     <ExpandableListView
         android:id="@+id/profileGoalsRec"
@@ -57,6 +60,7 @@
         android:layout_marginRight="96dp"
         android:text="@string/prof_default_surname"
         android:textColor="#FFFFFF" 
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textSize="30sp"/>
 
 </RelativeLayout>
