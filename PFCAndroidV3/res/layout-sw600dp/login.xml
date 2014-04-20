@@ -24,7 +24,8 @@
         android:layout_below="@+id/userName"
         android:background="#FFFFFF"
         android:ems="10"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textSize="30sp" />
 
     <ImageView
         android:id="@+id/userName"

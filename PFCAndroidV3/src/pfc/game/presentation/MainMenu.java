@@ -90,7 +90,9 @@ public class MainMenu extends Activity{
 			agent.insertPlayerGoal(pla.getId(), rec.getGoalList().get(i), context);
 		}
 		for(i=0;i<rec.getRecList().size();i++){
-			agent.insertPlayerRecord(pla.getId(), rec.getRecList().get(i).getId(),rec.getRecList().get(i).getValue(), context);
+			if(rec.getRecList().get(i).getId()==pla.getRecList().get(i).getId())
+				if(rec.getRecList().get(i).getValue()>pla.getRecList().get(i).getValue())
+					agent.insertPlayerRecord(pla.getId(), rec.getRecList().get(i).getId(),rec.getRecList().get(i).getValue(), context);
 		}
 		if(rec.getGoalList().size()>0)
 			pla.setGoalList(agent.ReadGoalFromPlayer(pla.getId(), context));

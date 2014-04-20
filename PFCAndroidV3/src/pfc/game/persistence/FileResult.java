@@ -129,6 +129,7 @@ public class FileResult {
 		    }
 		});      
 		httpclient.executeHttpPost("http://pfcserver-gildarzt.rhcloud.com/Listener");
+		//httpclient.executeHttpPost("http://192.168.1.38:8080/pfcserver/Listener");
 	}
 	private boolean deleteFile(){
 		File root = Environment.getExternalStorageDirectory();
