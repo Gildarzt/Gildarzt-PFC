@@ -4,19 +4,6 @@
     android:background="@drawable/yellowbg" >
 
     <TextView
-        android:id="@+id/profileName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/prof_default_name"
-        android:textColor="#FFFFFF" 
-        android:textStyle="bold"
-        android:textSize="30sp"/>
-
-    <TextView
         android:id="@+id/profileNick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,23 +31,36 @@
         android:id="@+id/profileGoalsRec"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignLeft="@+id/profileNick"
+        android:layout_alignRight="@+id/profilePassword"
         android:layout_below="@+id/profileNick"
         android:layout_marginTop="17dp" >
+
     </ExpandableListView>
+
+    <TextView
+        android:id="@+id/profileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="81dp"
+        android:layout_marginTop="31dp"
+        android:text="@string/prof_default_name"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/profileSurname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/profileName"
-        android:layout_alignBottom="@+id/profileName"
+        android:layout_above="@+id/profileNick"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="96dp"
+        android:layout_marginRight="146dp"
         android:text="@string/prof_default_surname"
-        android:textColor="#FFFFFF" 
-        android:textStyle="bold"
-        android:textSize="30sp"/>
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

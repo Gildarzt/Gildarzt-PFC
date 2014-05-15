@@ -4,19 +4,6 @@
     android:background="@drawable/greenbg" >
 
     <TextView
-        android:id="@+id/nRightsValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/nRights"
-        android:layout_alignBottom="@+id/nRights"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="17dp"
-        android:text="@string/n_rights"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textSize="30sp" />
-
-    <TextView
         android:id="@+id/nFailsValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -111,19 +98,6 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/nRights"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/nFails"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="31dp"
-        android:layout_marginLeft="40dp"
-        android:text="@string/n_rights"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
-    <TextView
         android:id="@+id/nFails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -131,6 +105,31 @@
         android:layout_alignLeft="@+id/nRights"
         android:layout_marginBottom="26dp"
         android:text="@string/n_fails"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nRights"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/nFails"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="35dp"
+        android:layout_marginLeft="142dp"
+        android:text="@string/n_rights"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nRightsValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/nRights"
+        android:layout_alignBottom="@+id/nRights"
+        android:layout_toRightOf="@+id/aceptButton"
+        android:text="@string/n_rights"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold" />

@@ -3,18 +3,6 @@
     android:layout_height="fill_parent"
     android:background="@drawable/greenbg" >
 
-    <ImageButton
-        android:id="@+id/playButton"
-        android:layout_width="250dp"
-        android:layout_height="80dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="71dp"
-        android:background="@drawable/playm"
-        android:contentDescription="@string/play_button"
-        android:scaleType="fitXY" />
-
     <ImageView
         android:id="@+id/ImageView04"
         android:layout_width="150dp"
@@ -84,5 +72,17 @@
         android:contentDescription="@string/reward_image_view"
         android:scaleType="fitXY"
         android:src="@drawable/defaultreward" />
+
+    <ImageButton
+        android:id="@+id/playButton"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="51dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/playm"
+        android:contentDescription="@string/play_button"
+        android:scaleType="fitXY" />
 
 </RelativeLayout>

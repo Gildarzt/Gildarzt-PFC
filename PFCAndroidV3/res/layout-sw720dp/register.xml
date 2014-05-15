@@ -18,17 +18,6 @@
     </EditText>
 
     <EditText
-        android:id="@+id/regSurnameET"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_alignLeft="@+id/regSurname"
-        android:layout_alignRight="@+id/regSurname"
-        android:layout_below="@+id/regSurname"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:inputType="text" />
-
-    <EditText
         android:id="@+id/regNickET"
         android:layout_width="100dp"
         android:layout_height="50dp"
@@ -39,68 +28,25 @@
         android:ems="10"
         android:inputType="text" />
 
-    <ImageButton
-        android:id="@+id/regButton"
-        android:layout_width="340dp"
-        android:layout_height="110dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="104dp"
-        android:contentDescription="@string/reg_password"
-        android:scaleType="fitXY"
-        android:src="@drawable/registerm" />
-
-    <EditText
-        android:id="@+id/psiCodeET"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_above="@+id/regButton"
-        android:layout_alignLeft="@+id/psiCode"
-        android:layout_alignRight="@+id/psiCode"
-        android:layout_marginBottom="87dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:inputType="textPassword" />
-
-    <ImageView
-        android:id="@+id/psiCode"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        android:layout_above="@+id/psiCodeET"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/reg_nick"
-        android:scaleType="fitXY"
-        android:src="@drawable/psicode" />
-
     <EditText
         android:id="@+id/regPasswordET"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_above="@+id/psiCode"
         android:layout_alignLeft="@+id/regPassword"
         android:layout_alignRight="@+id/regPassword"
-        android:layout_marginBottom="115dp"
+        android:layout_below="@+id/regNickET"
+        android:layout_marginTop="226dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textPassword" />
-
-    <ImageView
-        android:id="@+id/regNick"
-        android:layout_width="250dp"
-        android:layout_height="70dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/regName"
-        android:layout_marginRight="35dp"
-        android:contentDescription="@string/reg_nick"
-        android:scaleType="fitXY"
-        android:src="@drawable/username" />
 
     <ImageView
         android:id="@+id/regPassword"
         android:layout_width="250dp"
         android:layout_height="70dp"
-        android:layout_above="@+id/regPasswordET"
+        android:layout_alignBottom="@+id/regPasswordET"
         android:layout_alignLeft="@+id/regNickET"
+        android:layout_marginBottom="41dp"
         android:contentDescription="@string/reg_password"
         android:scaleType="fitXY"
         android:src="@drawable/passwordm" />
@@ -109,9 +55,9 @@
         android:id="@+id/regSurname"
         android:layout_width="250dp"
         android:layout_height="70dp"
-        android:layout_above="@+id/regPasswordET"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="30dp"
+        android:layout_alignTop="@+id/regPassword"
+        android:layout_marginLeft="105dp"
         android:contentDescription="@string/reg_surname"
         android:scaleType="fitXY"
         android:src="@drawable/surname" />
@@ -120,11 +66,68 @@
         android:id="@+id/regName"
         android:layout_width="250dp"
         android:layout_height="70dp"
+        android:layout_alignLeft="@+id/regSurname"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/regSurname"
-        android:layout_marginTop="94dp"
+        android:layout_marginTop="101dp"
         android:contentDescription="@string/reg_name"
         android:scaleType="fitXY"
         android:src="@drawable/name" />
+
+    <ImageView
+        android:id="@+id/regNick"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_above="@+id/regNameET"
+        android:layout_marginLeft="68dp"
+        android:layout_toRightOf="@+id/regNameET"
+        android:contentDescription="@string/reg_nick"
+        android:scaleType="fitXY"
+        android:src="@drawable/username" />
+
+    <EditText
+        android:id="@+id/regSurnameET"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/regPasswordET"
+        android:layout_alignLeft="@+id/regSurname"
+        android:layout_below="@+id/regSurname"
+        android:layout_toLeftOf="@+id/regNick"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="text" />
+
+    <ImageView
+        android:id="@+id/psiCode"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/regSurnameET"
+        android:layout_alignRight="@+id/regPasswordET"
+        android:layout_below="@+id/regSurnameET"
+        android:layout_marginTop="105dp"
+        android:contentDescription="@string/reg_nick"
+        android:scaleType="fitXY"
+        android:src="@drawable/psicode" />
+
+    <EditText
+        android:id="@+id/psiCodeET"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/psiCode"
+        android:layout_alignRight="@+id/psiCode"
+        android:layout_below="@+id/psiCode"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <ImageButton
+        android:id="@+id/regButton"
+        android:layout_width="340dp"
+        android:layout_height="110dp"
+        android:layout_below="@+id/psiCodeET"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="109dp"
+        android:contentDescription="@string/reg_password"
+        android:scaleType="fitXY"
+        android:src="@drawable/registerm" />
  
 </RelativeLayout>

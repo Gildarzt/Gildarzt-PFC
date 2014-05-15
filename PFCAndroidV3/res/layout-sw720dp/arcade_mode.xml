@@ -98,18 +98,6 @@
         android:textColor="#FFFFFF"
         android:textSize="40sp" />
 
-    <TextView
-        android:id="@+id/speedText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="31dp"
-        android:text="@string/arc_speed"
-        android:textColor="#FFFFFF"
-        android:textSize="40sp" />
-
     <ImageButton
         android:id="@+id/playButton"
         android:layout_width="200dp"
@@ -132,5 +120,17 @@
         android:background="@drawable/arconfm"
         android:contentDescription="@string/arconf_button"
         android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/speedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/confButton"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="125dp"
+        android:text="@string/arc_speed"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp" />
 
 </RelativeLayout>

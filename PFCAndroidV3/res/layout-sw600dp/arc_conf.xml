@@ -46,7 +46,7 @@
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="number"
-        android:textSize="40sp"/>
+        android:textSize="40sp" />
 
     <CheckBox
         android:id="@+id/speedCB"
@@ -63,6 +63,7 @@
         android:id="@+id/speedET"
         android:layout_width="100dp"
         android:layout_height="50dp"
+        android:layout_alignBottom="@+id/speedImage"
         android:layout_alignLeft="@+id/tryET"
         android:layout_alignTop="@+id/speedImage"
         android:background="#FFFFFF"
