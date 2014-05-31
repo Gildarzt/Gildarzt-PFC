@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.Vector3;
 public class Text {
 	private Vector3 position;
 	
-	public Text(int posX,int posY){
+	public Text(float posX,float posY){
 		position=new Vector3(posX,posY,0);
 	}
 

@@ -2,7 +2,6 @@ package pfc.game.domain;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 
@@ -28,8 +27,11 @@ public class Assets {
 	private static AtlasRegion corMsg;
 	private static AtlasRegion uncMsg;
 	private static AtlasRegion bcBut;
-	private static Sound jump;
+	private static AtlasRegion gameBonusBackground;
+	private static AtlasRegion lifes;
+	private static AtlasRegion bonus;
 	private static Music music;
+	
 	
 	public static TextureAtlas getAtlas() {
 		return atlas;
@@ -76,13 +78,6 @@ public class Assets {
 
 	public static void setTitle(AtlasRegion title) {
 		Assets.title = title;
-	}
-	public static Sound getJump() {
-		return jump;
-	}
-
-	public static void setJump(String path) {
-		jump = Gdx.audio.newSound(Gdx.files.internal(path));
 	}
 
 	public static Music getMusic() {
@@ -169,6 +164,30 @@ public class Assets {
 		Assets.hardOff = hardOff;
 	}
 
+	public static AtlasRegion getGameBonusBackground() {
+		return gameBonusBackground;
+	}
+
+	public static void setGameBonusBackground(AtlasRegion gameBonusBackground) {
+		Assets.gameBonusBackground = gameBonusBackground;
+	}
+
+	public static AtlasRegion getLifes() {
+		return lifes;
+	}
+
+	public static void setLifes(AtlasRegion lifes) {
+		Assets.lifes = lifes;
+	}
+
+	public static AtlasRegion getBonus() {
+		return bonus;
+	}
+
+	public static void setBonus(AtlasRegion bonus) {
+		Assets.bonus = bonus;
+	}
+
 	/**
 	 * Load.
 	 */
@@ -189,9 +208,10 @@ public class Assets {
 		corMsg=atlas.findRegion("corMsg");
 		uncMsg=atlas.findRegion("uncMsg");
 		bcBut=atlas.findRegion("backgroundButton");
-		
+		gameBonusBackground=atlas.findRegion("gameBonusBackground");
+		lifes=atlas.findRegion("lifes");
+		bonus=atlas.findRegion("bonus");
 		Assets.setMusic("data/music.mp3");
-		Assets.setJump("data/jump.ogg");
 		
 		
 	}

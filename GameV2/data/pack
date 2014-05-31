@@ -3,67 +3,11 @@ images1.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-gameBackground
+gameBonusBackground
   rotate: false
   xy: 2, 2
-  size: 544, 544
-  orig: 544, 544
-  offset: 0, 0
-  index: -1
-backgroundButton
-  rotate: false
-  xy: 2, 548
-  size: 640, 400
-  orig: 640, 400
-  offset: 0, 0
-  index: -1
-rec2
-  rotate: false
-  xy: 548, 2
-  size: 256, 212
-  orig: 256, 212
-  offset: 0, 0
-  index: -1
-uncMsg
-  rotate: false
-  xy: 548, 216
-  size: 443, 122
-  orig: 443, 122
-  offset: 0, 0
-  index: -1
-mediumOn
-  rotate: false
-  xy: 548, 340
-  size: 443, 122
-  orig: 443, 122
-  offset: 0, 0
-  index: -1
-mainBackground
-  rotate: false
-  xy: 644, 548
-  size: 259, 194
-  orig: 259, 194
-  offset: 0, 0
-  index: -1
-title
-  rotate: false
-  xy: 644, 744
-  size: 256, 192
-  orig: 256, 192
-  offset: 0, 0
-  index: -1
-rec1
-  rotate: false
-  xy: 806, 2
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: -1
-start
-  rotate: false
-  xy: 548, 464
-  size: 192, 32
-  orig: 192, 32
+  size: 854, 854
+  orig: 854, 854
   offset: 0, 0
   index: -1
 
@@ -71,45 +15,197 @@ images2.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+uncMsg
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+backgroundButton
+  rotate: false
+  xy: 2, 544
+  size: 640, 400
+  orig: 640, 400
+  offset: 0, 0
+  index: -1
+
+images3.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+title
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images4.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+start
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images5.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+rec2
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images6.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+rec1
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images7.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+mediumOn
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images8.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
 mediumOff
   rotate: false
   xy: 2, 2
-  size: 443, 122
-  orig: 443, 122
+  size: 960, 540
+  orig: 960, 540
   offset: 0, 0
   index: -1
+
+images9.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+mainBackground
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images10.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+lifes
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images11.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
 hardOn
   rotate: false
-  xy: 2, 126
-  size: 443, 122
-  orig: 443, 122
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
   offset: 0, 0
   index: -1
+
+images12.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
 hardOff
   rotate: false
-  xy: 2, 250
-  size: 443, 122
-  orig: 443, 122
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
   offset: 0, 0
   index: -1
+
+images13.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
 easyOn
   rotate: false
-  xy: 2, 374
-  size: 443, 122
-  orig: 443, 122
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
   offset: 0, 0
   index: -1
+
+images14.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
 easyOff
   rotate: false
-  xy: 2, 498
-  size: 443, 122
-  orig: 443, 122
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
   offset: 0, 0
   index: -1
+
+images15.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
 corMsg
   rotate: false
-  xy: 2, 622
-  size: 443, 122
-  orig: 443, 122
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images16.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+bonus
+  rotate: false
+  xy: 2, 2
+  size: 960, 540
+  orig: 960, 540
+  offset: 0, 0
+  index: -1
+
+images17.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+gameBackground
+  rotate: false
+  xy: 2, 2
+  size: 600, 600
+  orig: 600, 600
   offset: 0, 0
   index: -1

@@ -129,7 +129,7 @@ public class MainMenuScreen implements Screen {
 		batcher.enableBlending();
 		batcher.begin();
 		batcher.draw(Assets.getTitle(), 1, 8, 8, 6);
-		batcher.draw(Assets.getStart(), 2, 5, 6, 1);
+		batcher.draw(Assets.getStart(), 2, 3, 6, 4);
 		
 		//This is to get the difficult.
 		if(easy){

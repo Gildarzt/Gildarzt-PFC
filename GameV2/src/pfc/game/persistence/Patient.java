@@ -47,11 +47,15 @@ public class Patient {
 	public boolean saveResults(Click click){
 		boolean res=false;
 		FileWriter file=null;
-		String name=getName()+getId()+".txt";
+		String nameFile;
+		if(name.equals("arcade"))
+			nameFile="arcade.txt";
+		else
+			nameFile=getName()+getId()+".txt";
 		File root=Environment.getExternalStorageDirectory();
 		if(root.canWrite()){
 			File dir=new File(root+"/pfc");
-			File datafile=new File(dir,name);
+			File datafile=new File(dir,nameFile);
 			
 			if(!dir.exists())
 				dir.mkdir();

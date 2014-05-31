@@ -71,7 +71,7 @@ public class World {
 		this.test=new Test(arc.getDifficult(),arc.getTries());
 		this.cBig=null;
 		this.cSmall=null;
-		this.pat=null;
+		this.pat=new Patient("arcade",1,arc.getTries());
 		this.bTime=0;
 		this.click=new Click();
 		this.difficult=arc.getDifficult();
@@ -97,7 +97,7 @@ public class World {
 			test.setTries(test.getTries()-1);
 			if(isArcMode()){
 				if(arc.isSpeedInc()){
-					setDifficult(getDifficult()+0.1);
+					setDifficult(getDifficult()+0.2);
 					test.setDifficult(getDifficult());
 				}
 			}
@@ -114,7 +114,7 @@ public class World {
 				if(test.getTries()==0 && getDifficult()>=3 && !isBonusTime()){	
 					if(pat.getLifes()>0){
 						checkGoals();
-						setDifficult(getDifficult()+0.1);
+						setDifficult(getDifficult()+0.2);
 						test.setDifficult(getDifficult());
 						test.newTest();
 						cBig=test.getArrayCircle().get(0);
@@ -140,6 +140,9 @@ public class World {
 					}
 				}	
 			}/**Arcade mode is over*/
+			else if(arcMode){
+				pat.saveResults(click);
+			}
 		}
 		return res;
 	}

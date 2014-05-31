@@ -33,9 +33,13 @@ public class Test {
 	private void createTest(){
 	
 		/**ARP-07/10/13: I will calculate first the move that the circles will follow. Then
-		 * I'll create the case.
+		 * I'll create the case. If it's easy one, only can be the case 1 or 2.
 		 */
-		int mov=random(4,1);
+		int mov=0;
+		if(difficult==1)
+			mov=random(2,1);
+		else 
+			mov=random(4,1);
 		int yPos=0,yPos2=0;
 		double ySpeed=0,ySpeed2=0;
 		
@@ -45,18 +49,8 @@ public class Test {
 		case 1:
 			yPos=yPos2=random(8,6);
 			break;
-		/**To the top*/
-		case 2:
-			yPos=yPos2=random(7,6);
-			ySpeed=ySpeed2=1;
-			break;
-		/**To the bottom*/
-		case 3: 
-			yPos=yPos2=random(8,8);
-			ySpeed=ySpeed2=-1;
-			break;
-		/**One top, other down*/
-		case 4: 
+			/**One top, other down*/
+		case 2: 
 			mov=random(2,1);
 			switch(mov){
 			/**Big circle top, small bottom*/
@@ -77,9 +71,20 @@ public class Test {
 				break;
 			}
 			break;
+		/**To the top*/
+		case 3:
+			yPos=yPos2=random(6,6);
+			ySpeed=ySpeed2=1;
+			break;
+		/**To the bottom*/
+		case 4: 
+			yPos=yPos2=random(8,8);
+			ySpeed=ySpeed2=-1;
+			break;
+		
 		}
-		ArrayCircle.add(new Circle(-3,yPos,xSpeed,ySpeed));
-		ArrayCircle.add(new Circle(11,yPos2,-xSpeed,ySpeed2));
+		ArrayCircle.add(new Circle(-4,yPos,xSpeed,ySpeed));
+		ArrayCircle.add(new Circle(10,yPos2,-xSpeed,ySpeed2));
 	}
 
 	/**ARP-30/10/13: This method generate a random number between 1 and 10. I use to get

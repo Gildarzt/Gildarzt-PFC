@@ -99,10 +99,10 @@ public class BonusGameScreen implements Screen{
 		if (Gdx.input.justTouched()){
 			if(!world.isTouched()){
 				guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
-				int x1=(int)world.getcBig().getPosition().x-2,
-						y1=(int)world.getcBig().getPosition().y-2,
-						x2=(int)world.getcBig().getPosition().x+2,
-						y2=(int)world.getcBig().getPosition().y+2;
+				int x1=(int)world.getcBig().getPosition().x+1,
+						y1=(int)world.getcBig().getPosition().y,
+						x2=(int)world.getcBig().getPosition().x+3,
+						y2=(int)world.getcBig().getPosition().y+3;
 				BoundingBox aux=new BoundingBox(new Vector3(x1,y1,0),new Vector3(x2,y2,0));
 				if(world.getcBig().equals(world.getcSmall()) && aux.contains(touchPoint)){
 					successBonusClick();
@@ -130,23 +130,23 @@ public class BonusGameScreen implements Screen{
 			
 		batcher.disableBlending();
 		batcher.begin();
-		batcher.draw(Assets.getGameBackground(), 0, 0, 10, 15);
+		batcher.draw(Assets.getGameBonusBackground(), 0, 0, 10, 15);
 		batcher.end();
 			
 		cBig = world.getcBig();
 		cSmall = world.getcSmall();
 		batcher.begin();
 		batcher.enableBlending();
-		batcher.draw(Assets.getRec1(), cBig.getPosition().x, cBig.getPosition().y, 1f, 1f);
-		batcher.draw(Assets.getRec2(), cSmall.getPosition().x, cSmall.getPosition().y,1.5f,1.5f);
+		batcher.draw(Assets.getRec1(), cBig.getPosition().x, cBig.getPosition().y, 3.5f, 2f);
+		batcher.draw(Assets.getRec2(), cSmall.getPosition().x, cSmall.getPosition().y,3.5f,2f);
 		if(debugC){
-			Text feedback=new Text(-1,6);
+			Text feedback=new Text(-0.75f,6);
 			batcher.draw(Assets.getCorMsg(), feedback.getPosition().x, feedback.getPosition().y, 12, 5f);
 			timerC.schedule(timerTaskC, 500);
 		}
 			
 		if(debugI){
-			Text feedback=new Text(-1,6);
+			Text feedback=new Text(-1.5f,6);
 			batcher.draw(Assets.getUncMsg(), feedback.getPosition().x, feedback.getPosition().y, 12, 5f);
 			timerI.schedule(timerTaskI, 500);
 		}

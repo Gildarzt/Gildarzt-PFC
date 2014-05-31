@@ -111,9 +111,9 @@ public class GameScreen implements Screen{
 	    		sleep=false;
 	    	}
 	    };
-	    
+	    /**05/04/14: I'll check if the music is playing or not, if not I restart again*/
 	    if(!sleep){
-	    	/**ARP-15/10/12: This if check if the circles are in the screen or not, if they aren't
+	    	/**ARP-15/10/13: This if check if the circles are in the screen or not, if they aren't
 	    	 * restart the circles again.
 	    	 */
 	    	if(world.cGone()){
@@ -140,10 +140,10 @@ public class GameScreen implements Screen{
 	    		}
 	    		else if(!world.isTouched()){	
 	    			/**Get the position that we touch*/
-	    			int x1=(int)world.getcBig().getPosition().x-2,
-	    					y1=(int)world.getcBig().getPosition().y-2,
-	    					x2=(int)world.getcBig().getPosition().x+2,
-	    					y2=(int)world.getcBig().getPosition().y+2;
+	    			int x1=(int)world.getcBig().getPosition().x+1,
+	    					y1=(int)world.getcBig().getPosition().y,
+	    					x2=(int)world.getcBig().getPosition().x+3,
+	    					y2=(int)world.getcBig().getPosition().y+3;
 	    			BoundingBox aux=new BoundingBox(new Vector3(x1,y1,0),new Vector3(x2,y2,0));
 	    			/**Check if it was a good click or a bad one*/
 	    			if(world.getcBig().equals(world.getcSmall()) && aux.contains(touchPoint)){
@@ -181,31 +181,31 @@ public class GameScreen implements Screen{
 	    	cSmall = world.getcSmall();
 	    	batcher.begin();
 	    	batcher.enableBlending();
-	    	batcher.draw(Assets.getRec1(), cBig.getPosition().x, cBig.getPosition().y, 1f, 1f);
-	    	batcher.draw(Assets.getRec2(), cSmall.getPosition().x, cSmall.getPosition().y,1.5f,1.5f);
+	    	batcher.draw(Assets.getRec1(), cBig.getPosition().x, cBig.getPosition().y, 3.5f, 2f);
+	    	batcher.draw(Assets.getRec2(), cSmall.getPosition().x, cSmall.getPosition().y,3.5f,2f);
 	    	if(!world.isArcMode()){
 	    		for(int a=0;a<world.getPatient().getLifes();a++)
-	    			batcher.draw(Assets.getCorMsg(),a,14,0.5f,0.5f);
+	    			batcher.draw(Assets.getLifes(),a,14,0.75f,0.75f);
 	    	}
 	    	if(debugC){
-	    		Text feedback=new Text(-1,6);
+	    		Text feedback=new Text(-0.75f,6);
 	    		batcher.draw(Assets.getCorMsg(), feedback.getPosition().x, feedback.getPosition().y, 12, 5f);
 	    		timerC.schedule(timerTaskC, 500);	
 	    	}
 	    	
 	    	if(debugI){
-	    		Text feedback=new Text(-1,6);
+	    		Text feedback=new Text(-1.5f,6);
 	    		batcher.draw(Assets.getUncMsg(), feedback.getPosition().x, feedback.getPosition().y, 12, 5f);
 	    		timerI.schedule(timerTaskI, 500);
 	    	}
 	    	if(!world.isArcMode()){
 	    		if(world.getbTime()>=3 && world.getDifficult()>=3){
-	    			batcher.draw(Assets.getCorMsg(),8,13,2,2);
+	    			batcher.draw(Assets.getBonus(),8,13,3f,2f);
 	    		}
 	    	}else{
 	    		if(world.getArc().isBonus()){
 	    			if(world.getbTime()>=3){
-	    				batcher.draw(Assets.getCorMsg(),8,13,2,2);
+	    				batcher.draw(Assets.getBonus(),8,13,2f,1.5f);
 	    			}
 	    		}
 	    	}
@@ -234,32 +234,28 @@ public class GameScreen implements Screen{
 		System.out.println("Se han cruzado");
 		debugC=true;
 		world.setbTime(world.getbTime()+1);
-		if(!world.isArcMode()){
-			world.getClick().setSucAuxNormalClick(world.getClick().getSucAuxNormalClick()+1);
-			if(world.getClick().getSucAuxNormalClick()>world.getClick().getSuccessNormalClick())
-				world.getClick().setSuccessNormalClick(world.getClick().getSucAuxNormalClick());
-			world.getClick().setTotalSuccessClick(world.getClick().getTotalSuccessClick()+1);
-			if(world.getDifficult()>=3){
-				world.getClick().setFailAuxNormalClick(0);;
-				world.updateRecords();
-			}
+		world.getClick().setSucAuxNormalClick(world.getClick().getSucAuxNormalClick()+1);
+		if(world.getClick().getSucAuxNormalClick()>world.getClick().getSuccessNormalClick())
+			world.getClick().setSuccessNormalClick(world.getClick().getSucAuxNormalClick());
+		world.getClick().setTotalSuccessClick(world.getClick().getTotalSuccessClick()+1);
+		if(world.getDifficult()>=3){
+			world.getClick().setFailAuxNormalClick(0);;
+			world.updateRecords();
 		}
 	}
 	private void failClick(){
 		System.out.println("Has fallado, intentalo otra vez!");
 		debugI=true;
 		world.setbTime(0);
-		if(!world.isArcMode()){
-			world.getClick().setFailAuxNormalClick(world.getClick().getFailAuxNormalClick()+1);
-			if(world.getClick().getFailAuxNormalClick()>world.getClick().getFailNormalClick())
-				world.getClick().setFailNormalClick(world.getClick().getFailAuxNormalClick());
-			world.getClick().setTotalFailClick(world.getClick().getTotalFailClick()+1);
-			if(world.getDifficult()>=3){
-				/**I put rights clicks to 0 because i want to know the number of consecutive clicks*/
-				world.getClick().setSucAuxNormalClick(0);
-				world.getPatient().setLifes(world.getPatient().getLifes()-1);
-				world.updateRecords();
-			}
+		world.getClick().setFailAuxNormalClick(world.getClick().getFailAuxNormalClick()+1);
+		if(world.getClick().getFailAuxNormalClick()>world.getClick().getFailNormalClick())
+			world.getClick().setFailNormalClick(world.getClick().getFailAuxNormalClick());
+		world.getClick().setTotalFailClick(world.getClick().getTotalFailClick()+1);
+		if(world.getDifficult()>=3){
+			/**I put rights clicks to 0 because i want to know the number of consecutive clicks*/
+			world.getClick().setSucAuxNormalClick(0);
+			world.getPatient().setLifes(world.getPatient().getLifes()-1);
+			world.updateRecords();
 		}
 	}
 	public void setDifficult(int difficult,int idPlayer,String namePlayer){

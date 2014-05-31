@@ -44,7 +44,8 @@ public class Game1 extends Game {
 		}
 		else{
 			mainMenu = new MainMenuScreen(this,idPlayer,namePlayer); //cargar Main Menu Screen
-			Assets.getMusic().play();	  
+			Assets.getMusic().play();
+			Assets.getMusic().setLooping(true);
 			Assets.getMusic().setVolume(0.2f);
 		}
 		setScreen(mainMenu);
