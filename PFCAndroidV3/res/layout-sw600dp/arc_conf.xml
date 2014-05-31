@@ -92,7 +92,7 @@
         android:layout_height="80dp"
         android:layout_above="@+id/bonusCB"
         android:layout_alignLeft="@+id/speedCB"
-        android:layout_marginBottom="127dp"
+        android:layout_marginBottom="80dp"
         android:contentDescription="@string/arconf_try_text"
         android:scaleType="fitXY"
         android:src="@drawable/triesm" />

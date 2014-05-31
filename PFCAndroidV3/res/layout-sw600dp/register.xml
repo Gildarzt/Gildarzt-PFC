@@ -72,18 +72,6 @@
         android:scaleType="fitXY"
         android:src="@drawable/psicode" />
 
-    <EditText
-        android:id="@+id/regPasswordET"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_above="@+id/psiCode"
-        android:layout_alignLeft="@+id/regPassword"
-        android:layout_alignRight="@+id/regPassword"
-        android:layout_marginBottom="115dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:inputType="textPassword" />
-
     <ImageView
         android:id="@+id/regNick"
         android:layout_width="250dp"
@@ -96,27 +84,6 @@
         android:src="@drawable/username" />
 
     <ImageView
-        android:id="@+id/regPassword"
-        android:layout_width="250dp"
-        android:layout_height="70dp"
-        android:layout_above="@+id/regPasswordET"
-        android:layout_alignLeft="@+id/regNickET"
-        android:contentDescription="@string/reg_password"
-        android:scaleType="fitXY"
-        android:src="@drawable/passwordm" />
-
-    <ImageView
-        android:id="@+id/regSurname"
-        android:layout_width="250dp"
-        android:layout_height="70dp"
-        android:layout_above="@+id/regPasswordET"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="30dp"
-        android:contentDescription="@string/reg_surname"
-        android:scaleType="fitXY"
-        android:src="@drawable/surname" />
-
-    <ImageView
         android:id="@+id/regName"
         android:layout_width="250dp"
         android:layout_height="70dp"
@@ -126,5 +93,38 @@
         android:contentDescription="@string/reg_name"
         android:scaleType="fitXY"
         android:src="@drawable/name" />
+
+    <ImageView
+        android:id="@+id/regPassword"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_above="@+id/regPasswordET"
+        android:layout_alignLeft="@+id/regNickET"
+        android:contentDescription="@string/reg_password"
+        android:scaleType="fitXY"
+        android:src="@drawable/passwordm" />
+
+    <EditText
+        android:id="@+id/regPasswordET"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/psiCode"
+        android:layout_alignLeft="@+id/regPassword"
+        android:layout_alignRight="@+id/regPassword"
+        android:layout_marginBottom="66dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <ImageView
+        android:id="@+id/regSurname"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_above="@+id/regPasswordET"
+        android:layout_marginRight="27dp"
+        android:layout_toLeftOf="@+id/regPassword"
+        android:contentDescription="@string/reg_surname"
+        android:scaleType="fitXY"
+        android:src="@drawable/surname" />
  
 </RelativeLayout>

@@ -59,6 +59,18 @@ public class MainMenu extends Activity{
 					//SendResults();
 			}    	
 	    });
+		paintRewards();
+	}
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+	    if (keyCode == KeyEvent.KEYCODE_BACK) {
+	        Intent intent = getIntent();
+	        setResult(RESULT_OK, intent);
+	        finish();
+	    }
+	    return super.onKeyDown(keyCode, event);
+	}
+	private void paintRewards(){
 		ImageView reward1=(ImageView)findViewById(R.id.imageView1);
 		reward1.setImageResource(ShowReward(1));
 		ImageView reward2=(ImageView)findViewById(R.id.ImageView01);
@@ -71,30 +83,25 @@ public class MainMenu extends Activity{
 		reward5.setImageResource(ShowReward(12));
 		ImageView reward6=(ImageView)findViewById(R.id.ImageView05);
 		reward6.setImageResource(ShowReward(13));
-		
 	}
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-	    if (keyCode == KeyEvent.KEYCODE_BACK) {
-	        Intent intent = getIntent();
-	        setResult(RESULT_OK, intent);
-	        finish();
-	    }
-	    return super.onKeyDown(keyCode, event);
-	}
-	
 	private void UpdateDB(){
 		RecoverRecords rec=new RecoverRecords(pla.getId());
 		int i;
+		boolean aux=false; //I use this variable to see if the player got the goal before.
 		for(i=0;i<rec.getGoalList().size();i++){
-			agent.insertPlayerGoal(pla.getId(), rec.getGoalList().get(i), context);
+			aux=false;
+			for(int j=0;j<pla.getGoalList().size();j++)
+				if(pla.getGoalList().get(j).getId()==rec.getGoalList().get(i))
+					aux=true;
+			if(!aux)
+				agent.insertPlayerGoal(pla.getId(), rec.getGoalList().get(i), context);
 		}
 		for(i=0;i<rec.getRecList().size();i++){
 			if(rec.getRecList().get(i).getId()==pla.getRecList().get(i).getId())
 				if(rec.getRecList().get(i).getValue()>pla.getRecList().get(i).getValue())
 					agent.insertPlayerRecord(pla.getId(), rec.getRecList().get(i).getId(),rec.getRecList().get(i).getValue(), context);
 		}
-		if(rec.getGoalList().size()>0)
+		//if(rec.getGoalList().size()>0)
 			pla.setGoalList(agent.ReadGoalFromPlayer(pla.getId(), context));
 		if(rec.getRecList().size()>0 )
 			pla.setRecList(agent.ReadRecFromPlayer(pla.getId(), context));
@@ -130,7 +137,6 @@ public class MainMenu extends Activity{
 				
 			}
 		}
-		return res;
-		
+		return res;	
 	}
 }

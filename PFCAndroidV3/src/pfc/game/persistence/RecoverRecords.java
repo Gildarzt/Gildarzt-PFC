@@ -58,7 +58,6 @@ public class RecoverRecords {
 		String[] tokens=recoverPool.split(delim);
 		int i;
 		for(i=1;i<tokens.length && !tokens[i].equals("Record");i++){
-			System.out.println("estoy dentro del read pool");
 			goalList.add(Integer.parseInt(tokens[i]));
 		}
 		for(i=i+1;i<tokens.length;i++){
